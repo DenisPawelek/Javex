@@ -1,0 +1,15 @@
+pl\opole\uni\springWebApp\controllers\StudentController.class
+pl\javex\User\UserC.class
+pl\javex\User\Admin\AdminC.class
+pl\javex\User\Admin\AdminM.class
+pl\opole\uni\springWebApp\models\Part.class
+pl\opole\uni\springWebApp\models\Student.class
+pl\opole\uni\springWebApp\services\StudentService.class
+pl\opole\uni\springWebApp\models\Brand.class
+pl\opole\uni\springWebApp\repositories\StudentRepository.class
+pl\javex\User\UserS.class
+pl\javex\mainWebApp.class
+pl\opole\uni\springWebApp\models\Model.class
+pl\javex\User\UserM.class
+pl\javex\User\UserR.class
+pl\opole\uni\springWebApp\models\Car.class
