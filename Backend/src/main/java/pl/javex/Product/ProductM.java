@@ -18,9 +18,7 @@ import javax.persistence.Table;
 import pl.javex.Brand.BrandM;
 import pl.javex.Category.CategoryM;
 import pl.javex.Color.ColorM;
-import pl.javex.Contract.ContractM;
 import pl.javex.Description.DescriptionM;
-import pl.javex.Firm.FirmM;
 import pl.javex.Material.MaterialM;
 import pl.javex.Sex.SexM;
 import pl.javex.Size.SizeM;
@@ -69,13 +67,7 @@ public class ProductM {
 	@JoinColumn(name="id_type")
 	protected BrandM type;
 	
-	
-	
-	
-	protected char cattegory;
-	
-	@ManyToOne
-	@JoinColumn(name="id_firm")
-	protected FirmM firm;
+
+
 	
 }
