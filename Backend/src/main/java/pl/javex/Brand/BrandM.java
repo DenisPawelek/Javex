@@ -12,10 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import pl.javex.Contract.ContractM;
 import pl.javex.Description.DescriptionM;
 import pl.javex.Product.ProductM;
-import pl.javex.User.Admin.Reprezentative.ReprezentativeM;
 
 @Entity
 @Table(name = "brands")
