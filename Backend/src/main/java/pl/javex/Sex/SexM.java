@@ -2,6 +2,7 @@ package pl.javex.Sex;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +18,9 @@ public class SexM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long Id;
+	protected long id;
 	
+	@Column(name = "sex_name", columnDefinition = "varchar(15)", nullable=false)
 	protected String name; 
 	
 	@OneToMany(mappedBy="sex")

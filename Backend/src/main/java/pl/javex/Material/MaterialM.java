@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import pl.javex.Contract.ContractM;
 import pl.javex.Description.DescriptionM;
 import pl.javex.Product.ProductM;
 
@@ -24,14 +23,12 @@ public class MaterialM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
 	
+	@Column(name = "material_name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;
 	
 	@OneToOne
-	@Column(name = "description_id")
+	@JoinColumn(name = "description_id", nullable=false)
 	protected DescriptionM description;
-	
-	
-	
 	
 	@OneToMany(mappedBy = "material")
 	protected List<ProductM> products;

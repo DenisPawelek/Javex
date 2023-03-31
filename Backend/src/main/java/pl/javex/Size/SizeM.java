@@ -2,6 +2,7 @@ package pl.javex.Size;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +17,9 @@ import pl.javex.Product.ProductM;
 public class SizeM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long Id;
+	protected long id;
 	
+	@Column(name = "size_name", columnDefinition = "varchar(15)", nullable=false)
 	protected String name;
 	
 	@OneToMany(mappedBy="size")

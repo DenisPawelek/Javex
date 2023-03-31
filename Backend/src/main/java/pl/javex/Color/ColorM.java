@@ -19,8 +19,9 @@ public class ColorM {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long Id;
+	protected long id;
 	
+	@Column(name = "color_name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;
 	
 	@OneToMany(mappedBy="color")

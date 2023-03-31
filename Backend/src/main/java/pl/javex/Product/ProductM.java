@@ -16,7 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import pl.javex.Brand.BrandM;
-import pl.javex.Contract.ContractM;
+import pl.javex.Category.CategoryM;
+import pl.javex.Color.ColorM;
 import pl.javex.Description.DescriptionM;
 import pl.javex.Material.MaterialM;
 import pl.javex.Sex.SexM;
@@ -31,44 +32,45 @@ public class ProductM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected long id;
 	
+	@Column(name = "amount", columnDefinition = "default 0", nullable=false)
 	protected long amount;
 	
+	@Column(name = "price", nullable=false)
 	protected long price;
 	
 	@OneToOne
+	@JoinColumn(name = "desc_id", nullable=false)
 	protected DescriptionM description;
 
 	@ManyToOne
-	@JoinColumn(name="id_material")
+	@JoinColumn(name="material_id", nullable=false)
 	protected MaterialM material;
 
-//	@ManyToOne
-//	@JoinColumn(name="id_color")
-//	protected ColorM color;
-//
-//	@ManyToOne
-//	@JoinColumn(name="id_category")
-//	protected CategoryM category;
+	@ManyToOne
+	@JoinColumn(name="color_id", nullable=false)
+	protected ColorM color;
+
+	@ManyToOne
+	@JoinColumn(name="category_id", nullable=false)
+	protected CategoryM category;
 	
 	@ManyToOne
-	@JoinColumn(name="id_sex")
+	@JoinColumn(name="sex_id", nullable=false)
 	protected SexM sex;
 	
 	@ManyToOne
-	@JoinColumn(name="id_size")
+	@JoinColumn(name="size_id", nullable=false)
 	protected SizeM size;
 	
 	@ManyToOne
-	@JoinColumn(name="id_brand")
+	@JoinColumn(name="brand_id", nullable=false)
 	protected BrandM brand;
 	
 	@ManyToOne
-	@JoinColumn(name="id_type")
+	@JoinColumn(name="type_id", nullable=false)
 	protected BrandM type;
 	
-	
-	
-	
-	protected char cattegory;
+
+
 	
 }
