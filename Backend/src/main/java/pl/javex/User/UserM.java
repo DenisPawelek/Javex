@@ -32,28 +32,37 @@ abstract public class UserM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	
+	@Column(name = "name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;
+	@Column(name = "surr", columnDefinition = "varchar(63)", nullable=false)
 	protected String surrname;
 	
+	@Column(name = "passHash", columnDefinition = "varchar(255)", nullable=false)
 	protected String password;
+	@Column(name = "passHash", columnDefinition = "varchar(255)", nullable=false)
 	protected String userName;
 	
-	@JoinColumn(name = "bd_id")
-	protected DateM bd;
-	
-	@JoinColumn(name = "jd_id")
-	protected DateM jd;
-	
-	protected int role;
-	
-	@JoinColumn(name = "address_id")
+	@Column(name = "phone_number", nullable=false)
+	protected int phone;
+	@JoinColumn(name = "address_id", nullable=false)
 	protected AddressM address;
-	
 	@OneToOne
+	@JoinColumn(name = "email_id", nullable=false)
 	protected EmailM email;
 	
-	protected int phone;
+	@Column(name = "role", columnDefinition = "default 0", nullable=false)
+	protected int role;
+	
+	@JoinColumn(name = "bd_id", nullable=false)
+	protected DateM bd;
+	
+	@JoinColumn(name = "jd_id", nullable=false)
+	protected DateM jd;
+	
+	
+
+	
+
 		
 
 	

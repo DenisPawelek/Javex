@@ -32,39 +32,42 @@ public class ProductM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected long id;
 	
+	@Column(name = "amount", columnDefinition = "default 0", nullable=false)
 	protected long amount;
 	
+	@Column(name = "price", nullable=false)
 	protected long price;
 	
 	@OneToOne
+	@JoinColumn(name = "desc_id", nullable=false)
 	protected DescriptionM description;
 
 	@ManyToOne
-	@JoinColumn(name="id_material")
+	@JoinColumn(name="material_id", nullable=false)
 	protected MaterialM material;
 
 	@ManyToOne
-	@JoinColumn(name="id_color")
+	@JoinColumn(name="color_id", nullable=false)
 	protected ColorM color;
 
 	@ManyToOne
-	@JoinColumn(name="id_category")
+	@JoinColumn(name="category_id", nullable=false)
 	protected CategoryM category;
 	
 	@ManyToOne
-	@JoinColumn(name="id_sex")
+	@JoinColumn(name="sex_id", nullable=false)
 	protected SexM sex;
 	
 	@ManyToOne
-	@JoinColumn(name="id_size")
+	@JoinColumn(name="size_id", nullable=false)
 	protected SizeM size;
 	
 	@ManyToOne
-	@JoinColumn(name="id_brand")
+	@JoinColumn(name="brand_id", nullable=false)
 	protected BrandM brand;
 	
 	@ManyToOne
-	@JoinColumn(name="id_type")
+	@JoinColumn(name="type_id", nullable=false)
 	protected BrandM type;
 	
 

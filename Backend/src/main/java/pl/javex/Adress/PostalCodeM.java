@@ -2,6 +2,7 @@ package pl.javex.Adress;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class PostalCodeM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Column(name = "postal_code", columnDefinition = "varchar(7)", nullable=false)
 	protected String value;
 	
 	@JoinColumn(name = "city_id")

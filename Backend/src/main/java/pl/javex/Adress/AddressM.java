@@ -2,6 +2,7 @@ package pl.javex.Adress;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,11 +20,14 @@ public class AddressM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "flat", columnDefinition = "varchar(8)", nullable=false)
 	protected String flat;
+	@Column(name = "house", columnDefinition = "varchar(4)", nullable=false)
 	protected String house;
+	@Column(name = "street", columnDefinition = "varchar(31)", nullable=false)
 	protected String street;
 	
-	@JoinColumn(name = "postal_id")
+	@JoinColumn(name = "postal_id", nullable=false)
 	protected PostalCodeM postalCode;
 	
 	@OneToMany(mappedBy="address")

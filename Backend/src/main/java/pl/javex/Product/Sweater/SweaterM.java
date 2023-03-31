@@ -1,5 +1,6 @@
 package pl.javex.Product.Sweater;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,6 +8,9 @@ import javax.persistence.Table;
 @Table(name = "sweaters")
 public class SweaterM {
 
-	protected boolean hasGolf;
+	
+	@Column(name = "golf", columnDefinition = "default false", nullable=false)
+	protected boolean hasGolf;	
+	@Column(name = "sleve", columnDefinition = "default false", nullable=false)
 	protected boolean hasSleeve;
 }

@@ -27,9 +27,9 @@ public class BrandM {
 	protected List<ProductM> products;
 
 	@OneToOne
-	@Column(name = "desc_id")
+	@JoinColumn(name = "desc_id")
 	protected DescriptionM description;
 	
-	@Column(name = "logo")
+	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable=false)
 	protected String logoUrl;
 }

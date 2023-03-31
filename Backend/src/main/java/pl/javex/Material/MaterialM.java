@@ -23,14 +23,12 @@ public class MaterialM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
 	
+	@Column(name = "material_name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;
 	
 	@OneToOne
-	@Column(name = "description_id")
+	@Column(name = "description_id", nullable=false)
 	protected DescriptionM description;
-	
-	
-	
 	
 	@OneToMany(mappedBy = "material")
 	protected List<ProductM> products;

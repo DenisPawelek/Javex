@@ -3,6 +3,7 @@ package pl.javex.Date;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class DateM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "date", nullable=false)
 	protected Date date;
 	
 	@OneToMany(mappedBy="bd")
