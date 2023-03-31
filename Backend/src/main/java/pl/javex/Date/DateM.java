@@ -24,9 +24,9 @@ public class DateM {
 	@Column(name = "date", nullable=false)
 	protected Date date;
 	
-	@OneToMany(mappedBy="bd")
+	@OneToMany(mappedBy="userBd")
 	protected List<UserM> usersbd;
 	
-	@OneToMany(mappedBy="jd")
+	@OneToMany(mappedBy="userJd")
 	protected List<UserM> usersjd;
 }

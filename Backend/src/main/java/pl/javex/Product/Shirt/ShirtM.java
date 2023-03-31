@@ -4,9 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import pl.javex.Product.ProductM;
+
 @Entity
 @Table(name = "shirts")
-public class ShirtM {
+public class ShirtM extends ProductM{
 	
 	@Column(name = "sleve", columnDefinition = "default false", nullable=false)
 	protected boolean hasSleeve;

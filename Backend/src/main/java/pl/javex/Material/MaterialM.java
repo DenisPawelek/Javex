@@ -27,7 +27,7 @@ public class MaterialM {
 	protected String name;
 	
 	@OneToOne
-	@Column(name = "description_id", nullable=false)
+	@JoinColumn(name = "description_id", nullable=false)
 	protected DescriptionM description;
 	
 	@OneToMany(mappedBy = "material")

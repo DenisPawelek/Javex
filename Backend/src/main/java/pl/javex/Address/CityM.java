@@ -1,4 +1,4 @@
-package pl.javex.Adress;
+package pl.javex.Address;
 
 import java.util.List;
 
@@ -7,23 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="postal_codes")
-public class PostalCodeM {
+@Table(name="cities")
+public class CityM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	@Column(name = "postal_code", columnDefinition = "varchar(7)", nullable=false)
-	protected String value;
 	
-	@JoinColumn(name = "city_id")
-	protected CityM city;
+	@Column(name = "city_name", columnDefinition = "varchar(31)", nullable=false)
+	protected String name;
 	
-	@OneToMany(mappedBy="postalCode")
-	protected List<AddressM> addresses;
+	@OneToMany(mappedBy="city")
+	protected List<PostalCodeM> postalCodes;
+	
+	
 }
