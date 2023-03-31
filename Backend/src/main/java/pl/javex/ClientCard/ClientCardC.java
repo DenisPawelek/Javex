@@ -14,6 +14,6 @@ public class ClientCardC {
 	
 	@GetMapping("/cards")
 	public List<ClientCardM> getCards(){
-		return cardService.getCards();
+		return cardService.getAllItems();
 	}
 }

@@ -8,8 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import pl.javex.User.Client.ClientM;
-
 @Entity
 public class ClientCardM {
 
@@ -23,9 +21,6 @@ public class ClientCardM {
 	@ManyToOne
 	@JoinColumn(name = "status_id")
 	private CardStatusM status;
-	
-	@OneToOne(mappedBy="card")
-	private ClientM client;
 
 	protected Long getId() {
 		return id;
@@ -57,17 +52,5 @@ public class ClientCardM {
 
 	protected void setStatus(CardStatusM status) {
 		this.status = status;
-	}
-
-	protected ClientM getClient() {
-		return client;
-	}
-
-	protected void setClient(ClientM client) {
-		this.client = client;
-	}
-	
-	
-	
-	
+	}	
 }

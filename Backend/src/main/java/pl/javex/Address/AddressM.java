@@ -11,12 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import pl.javex.LOG.AdminLogM;
-import pl.javex.User.Admin.AdminM;
-import pl.javex.User.Admin.Reprezentative.ReprezentativeM;
-import pl.javex.User.Client.ClientM;
-import pl.opole.uni.springWebApp.models.Model;
-
 @Entity
 @Table(name = "Adress")
 public class AddressM {
@@ -30,15 +24,6 @@ public class AddressM {
 	protected String postal_code;
 	protected String street;
 	protected String house;
-	
-	@OneToMany(mappedBy = "delivery_adress")
-	protected List<ClientM> clients;
-	
-	@OneToMany(mappedBy = "corr_address")
-	protected List<AdminM> admins;
-	
-	@OneToMany(mappedBy = "pickup_address")
-	protected List<ReprezentativeM> reprezentatives;
 
 	protected Long getId() {
 		return id;
@@ -86,33 +71,5 @@ public class AddressM {
 
 	protected void setHouse(String house) {
 		this.house = house;
-	}
-
-	protected List<ClientM> getClients() {
-		return clients;
-	}
-
-	protected void setClients(List<ClientM> clients) {
-		this.clients = clients;
-	}
-
-	protected List<AdminM> getAdmins() {
-		return admins;
-	}
-
-	protected void setAdmins(List<AdminM> admins) {
-		this.admins = admins;
-	}
-
-	protected List<ReprezentativeM> getReprezentatives() {
-		return reprezentatives;
-	}
-
-	protected void setReprezentatives(List<ReprezentativeM> reprezentatives) {
-		this.reprezentatives = reprezentatives;
-	}
-	
-	
-	
-	
+	}	
 }

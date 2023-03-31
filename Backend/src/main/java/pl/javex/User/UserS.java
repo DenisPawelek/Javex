@@ -5,15 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import services.MainService;
+
 
 @Service
-public class UserS {
+public class UserS extends MainService<UserM, UserR>{
 
 	@Autowired
 	private UserR userRepository;
-	
-	public List<UserM> getUsers(){
-		return userRepository.findAll();
-	}
 	
 }

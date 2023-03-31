@@ -14,6 +14,6 @@ public class AddressC {
 	
 	@GetMapping("/adresses")
 	public List<AddressM> getAddresses(){
-		return addressService.getAddresses();
+		return addressService.getAllItems();
 	}
 }

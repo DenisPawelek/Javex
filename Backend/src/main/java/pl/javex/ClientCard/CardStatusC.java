@@ -15,6 +15,6 @@ public class CardStatusC {
 	
 	@GetMapping("/cardStatuses")
 	public List<CardStatusM> getCardStatuses(){
-		return cardStatusService.getCardStatuses();
+		return cardStatusService.getAllItems();
 	}
 }

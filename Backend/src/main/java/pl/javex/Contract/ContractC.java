@@ -14,7 +14,7 @@ public class ContractC {
 	
 	@GetMapping("/contracts")
 	public List<ContractM> getContracts(){
-		return contractService.getContracts();
+		return contractService.getAllItems();
 	}
 	
 }

@@ -5,14 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import services.MainService;
+
 @Service
-public class ContractS {
+public class ContractS extends MainService<ContractM, ContractR>{
 
 	@Autowired
 	private ContractR contractRepository;
 	
-	public List<ContractM> getContracts(){
-		return contractRepository.findAll();
-	}
 	
 }

@@ -8,8 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import pl.javex.Firm.FirmM;
-
 @Entity
 @Table(name="contracts")
 public class ContractM {
@@ -19,9 +17,6 @@ public class ContractM {
 	private Long id;
 	
 	private float margin;
-	
-	@OneToOne(mappedBy = "contract")
-	private FirmM firm;
 
 	protected Long getId() {
 		return id;
@@ -38,14 +33,4 @@ public class ContractM {
 	protected void setMargin(float margin) {
 		this.margin = margin;
 	}
-
-	protected FirmM getFirm() {
-		return firm;
-	}
-
-	protected void setFirm(FirmM firm) {
-		this.firm = firm;
-	}
-	
-	
 }

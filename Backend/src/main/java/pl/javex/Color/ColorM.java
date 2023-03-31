@@ -5,7 +5,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import pl.javex.Product.ProductM;
-import pl.opole.uni.springWebApp.models.Car;
 
 import java.util.List;
 
