@@ -1,4 +1,4 @@
-package pl.javex.User;
+package pl.javex.Address;
 
 import java.util.List;
 
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 import services.MainService;
 
-
 @Service
-public class UserS extends MainService<UserM, UserR>{
+public class AddressS extends MainService<AddressM, AddressR> {
 
 	@Autowired
-	private UserR userRepository;
+	private AddressR addressRepository;
+	
 	
 }

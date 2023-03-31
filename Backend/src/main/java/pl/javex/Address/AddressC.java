@@ -1,4 +1,4 @@
-package pl.javex.User;
+package pl.javex.Address;
 
 import java.util.List;
 
@@ -7,17 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserC {
+public class AddressC {
 
 	@Autowired
-	private UserS userService;
+	private AddressS addressService;
 	
-	@GetMapping("/users")
-	public List<UserM> getUsers(){
-		return userService.getAllItems();
+	@GetMapping("/adresses")
+	public List<AddressM> getAddresses(){
+		return addressService.getAllItems();
 	}
-	
-	
-	
-	
 }
