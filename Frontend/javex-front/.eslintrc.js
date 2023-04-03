@@ -5,8 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    // 'recomended',
-    'airbnb',
+    //'airbnb',
   ],
   overrides: [
   ],
