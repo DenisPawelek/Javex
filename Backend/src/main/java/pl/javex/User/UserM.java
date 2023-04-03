@@ -1,7 +1,5 @@
 package pl.javex.User;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,82 +7,64 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.springframework.data.annotation.CreatedDate;
+import pl.javex.Address.AddressM;
+import pl.javex.Date.DateM;
+import pl.javex.Email.EmailM;
 
 
 
 @Entity
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.JOINED)
-abstract public class UserM {
+public class UserM {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long id;
+	private Long id;
 	
+	@Column(name = "name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;
+	@Column(name = "surr", columnDefinition = "varchar(63)", nullable=false)
 	protected String surrname;
-	protected String email;
-	protected Date bd;
 	
-	protected Date join_date;
+	@Column(name = "pass_hash", columnDefinition = "varchar(255)", nullable=false)
+	protected String password;
+	@Column(name = "user_name", columnDefinition = "varchar(255)", nullable=false)
+	protected String userName;
+	
+	@Column(name = "phone_number", nullable=false)
+	protected int phone;
+	
 
-	protected long getId() {
-		return id;
-	}
+	@ManyToOne
+	@JoinColumn(name = "address_id", nullable=false)
+	protected AddressM userAddress;
+	
+	@OneToOne
+	@JoinColumn(name = "email_id", nullable=false)
+	protected EmailM email;
+	
+	@Column(name = "role", columnDefinition = "default 0", nullable=false)
+	protected int role;
+	
 
-	protected void setId(long id) {
-		this.id = id;
-	}
+	@ManyToOne
+	@JoinColumn(name = "bd_id", nullable=false)
+	protected DateM userBd;
 
-	protected String getName() {
-		return name;
-	}
-
-	protected void setName(String name) {
-		this.name = name;
-	}
-
-	protected String getSurrname() {
-		return surrname;
-	}
-
-	protected void setSurrname(String surrname) {
-		this.surrname = surrname;
-	}
-
-	protected String getEmail() {
-		return email;
-	}
-
-	protected void setEmail(String email) {
-		this.email = email;
-	}
-
-	protected Date getBd() {
-		return bd;
-	}
-
-	protected void setBd(Date bd) {
-		this.bd = bd;
-	}
-
-	protected Date getJoin_date() {
-		return join_date;
-	}
-
-	protected void setJoin_date(Date join_date) {
-		this.join_date = join_date;
-	}
+	@ManyToOne
+	@JoinColumn(name = "jd_id", nullable=false)
+	protected DateM userJd;
 	
 	
+
 	
-	
-	
+
+		
+
 	
 }

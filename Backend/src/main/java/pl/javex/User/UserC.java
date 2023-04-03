@@ -14,7 +14,7 @@ public class UserC {
 	
 	@GetMapping("/users")
 	public List<UserM> getUsers(){
-		return userService.getUsers();
+		return userService.getAllItems();
 	}
 	
 	
