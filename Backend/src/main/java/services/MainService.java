@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+
 @Service
-public class MainService<E,R extends JpaRepository<E, Long>> {
+//public class MainService<E, JpaRepository<E, Long>>{
+	public class MainService<E>{
+//	public class MainService<E, R extends JpaRepository<E, Long>>{
 
 	@Autowired
-	private R repo;
+	private JpaRepository<E, Long> repo;
 	
 	public List<E> getAllItems()
 	{
@@ -36,4 +39,7 @@ public class MainService<E,R extends JpaRepository<E, Long>> {
 	{
 		repo.deleteAll(Items);
 	}
+
+	
+
 }
