@@ -72,29 +72,31 @@ public class GenericsReg extends GenericController{
 //########		REPOS
 
 
-interface RepoMultiAddress     extends JpaRepository<AddressM      , Long>{}
-interface RepoMultiBoots       extends JpaRepository<BootsM        , Long>{}
-interface RepoMultiBrand       extends JpaRepository<BrandM        , Long>{}
-interface RepoMultiCategory    extends JpaRepository<CategoryM     , Long>{}
-interface RepoMultiCity        extends JpaRepository<CityM         , Long>{}
-interface RepoMultiColor       extends JpaRepository<ColorM        , Long>{}
-interface RepoMultiDate        extends JpaRepository<DateM         , Long>{}
-interface RepoMultiDescription extends JpaRepository<DescriptionM  , Long>{}
-interface RepoMultiEmail       extends JpaRepository<EmailM        , Long>{}
-interface RepoMultiHoodie      extends JpaRepository<HoodieM       , Long>{}
-interface RepoMultiJacket      extends JpaRepository<JacketM       , Long>{}
-interface RepoMultiMaterial    extends JpaRepository<MaterialM     , Long>{}
-interface RepoMultiPants       extends JpaRepository<PantsM        , Long>{}
-interface RepoMultiPostalCode  extends JpaRepository<PostalCodeM   , Long>{}
-interface RepoMultiProduct     extends JpaRepository<ProductM      , Long>{}
-interface RepoMultiProductType extends JpaRepository<ProductTypeM  , Long>{}
-interface RepoMultiSex         extends JpaRepository<SexM          , Long>{}
-interface RepoMultiShirt       extends JpaRepository<ShirtM        , Long>{}
-interface RepoMultiSize        extends JpaRepository<SizeM         , Long>{}
-interface RepoMultiSweater     extends JpaRepository<SweaterM      , Long>{}
-interface RepoMultiType        extends JpaRepository<TypeM         , Long>{}
-interface RepoMultiUser        extends JpaRepository<UserM         , Long>{}
-                                                               
+interface RepoAddress     extends JpaRepository<AddressM      , Long>{}
+interface RepoBoots       extends JpaRepository<BootsM        , Long>{}
+interface RepoBrand       extends JpaRepository<BrandM        , Long>{}
+interface RepoCategory    extends JpaRepository<CategoryM     , Long>{}
+interface RepoCity        extends JpaRepository<CityM         , Long>{}
+interface RepoColor       extends JpaRepository<ColorM        , Long>{}
+interface RepoDate        extends JpaRepository<DateM         , Long>{}
+interface RepoDescription extends JpaRepository<DescriptionM  , Long>{}
+interface RepoEmail       extends JpaRepository<EmailM        , Long>{}
+interface RepoHoodie      extends JpaRepository<HoodieM       , Long>{}
+interface RepoJacket      extends JpaRepository<JacketM       , Long>{}
+interface RepoMaterial    extends JpaRepository<MaterialM     , Long>{}
+interface RepoPants       extends JpaRepository<PantsM        , Long>{}
+interface RepoPostalCode  extends JpaRepository<PostalCodeM   , Long>{}
+interface RepoProduct     extends JpaRepository<ProductM      , Long>{}
+interface RepoProductType extends JpaRepository<ProductTypeM  , Long>{}
+interface RepoSex         extends JpaRepository<SexM          , Long>{}
+interface RepoShirt       extends JpaRepository<ShirtM        , Long>{}
+interface RepoSize        extends JpaRepository<SizeM         , Long>{}
+interface RepoSweater     extends JpaRepository<SweaterM      , Long>{}
+interface RepoType        extends JpaRepository<TypeM         , Long>{}
+interface RepoUser        extends JpaRepository<UserM         , Long>{}
+interface RepoTransaction extends JpaRepository<TransactionM  , Long>{}
+interface RepoOrder		  extends JpaRepository<OrderM  	  , Long>{}
+interface RepoInvoice	  extends JpaRepository<InvoiceM  	  , Long>{}
 
 
 
@@ -123,7 +125,11 @@ interface RepoMultiUser        extends JpaRepository<UserM         , Long>{}
 @Service class  Sweater     extends  GenericService<SweaterM     >{@Override public SweaterM      getField(){ return new SweaterM     (); } }
 @Service class  Type        extends  GenericService<TypeM        >{@Override public TypeM         getField(){ return new TypeM        (); } }
 @Service class  User        extends  GenericService<UserM        >{@Override public UserM         getField(){ return new UserM        (); } }
-                                                                                               
+@Service class  Transaction extends  GenericService<TransactionM >{@Override public TransactionM  getField(){ return new TransactionM (); } }
+@Service class  Order       extends  GenericService<OrderM       >{@Override public OrderM        getField(){ return new OrderM       (); } }
+@Service class  Invoice     extends  GenericService<InvoiceM     >{@Override public InvoiceM      getField(){ return new InvoiceM     (); } }
+
+                                                                                              
 
 
 

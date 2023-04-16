@@ -13,9 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "materials")
-public class MaterialM {
+@Getter @Setter public class MaterialM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;

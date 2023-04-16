@@ -12,13 +12,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "brands")
-public class BrandM {
+@Getter @Setter public class BrandM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long id;
+	protected Long id;
 	
 	@OneToMany(mappedBy = "brand")
 	protected List<ProductM> products;

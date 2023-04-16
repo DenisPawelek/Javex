@@ -15,14 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "products")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class ProductM {
+@Getter @Setter public class ProductM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long Id;
+	protected Long Id;
 	
 	@Column(name = "amount", nullable=false)
 	protected long amount;
@@ -62,7 +65,7 @@ public class ProductM {
 	@JoinColumn(name="type_id", nullable=false)
 	protected BrandM type;
 	
+	@OneToMany(mappedBy = "product")
+	protected List<OrderM> orders;
 
-
-	
 }
