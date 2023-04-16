@@ -1,1 +1,16 @@
 npm install react-scripts
+npm install react-router-dom --save
+npm install @mui/icons-material
+npm install redux
+npm install axios
+npm install react-redux
+npm install redux-persist
+npm install react-switch
+npm install @reduxjs/toolkit
+npm install @emotion/react
+npm install @emotion/styled
+npm uninstall node-sass
+npm install sass --save-dev
+npm install -S prop-types
+npm install @stripe
+npm install @stripe/stripe-js
