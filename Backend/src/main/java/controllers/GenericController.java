@@ -39,7 +39,6 @@ public class GenericController<T> extends MainController{
 	
 	
 	
-	
 	@GetMapping("/single/{type}")
 	public List<Object> getSingle(@PathVariable String type, @RequestParam Long id){
 		
@@ -82,7 +81,8 @@ public class GenericController<T> extends MainController{
 	
 	@PostMapping("/single/{type}")
 	public List<Object> postSingle(@PathVariable String type, @RequestBody String obj) 
-			throws JsonMappingException, JsonProcessingException {
+			throws JsonMappingException, 
+			JsonProcessingException {
 		
 		List<Object> l = new ArrayList<Object>();
 		
@@ -174,7 +174,7 @@ public class GenericController<T> extends MainController{
 			throws JsonMappingException, 
 			JsonProcessingException, 
 			IllegalAccessException, 
-			InvocationTargetException {
+			InvocationTargetException, NoSuchFieldException, SecurityException, NoSuchMethodException {
 		
 		List<Object> l = new ArrayList<Object>();
 		l.add(type);
@@ -184,8 +184,8 @@ public class GenericController<T> extends MainController{
 			if(type.equals(list.get(i).getClass().getSimpleName()) ) 
 			{
 				ObjectMapper jacksonMapper = new ObjectMapper();
-				list.get(i).ModifyItem(id, jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
-				l = new ArrayList<Object>();
+				l = list.get(i).ModifyItem(id, jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
+//				l = new ArrayList<Object>();
 				l.add("MODIFIED SINGLE ITEM");
 				return l;
 			}
@@ -199,7 +199,7 @@ public class GenericController<T> extends MainController{
 			throws JsonMappingException, 
 			JsonProcessingException, 
 			IllegalAccessException, 
-			InvocationTargetException {
+			InvocationTargetException, NoSuchFieldException, SecurityException, NoSuchMethodException {
 		
 		List<Object> l = new ArrayList<Object>();
 		l.add(type);

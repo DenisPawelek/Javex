@@ -12,9 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="postal_codes")
-public class PostalCodeM {
+@Getter @Setter public class PostalCodeM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

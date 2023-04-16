@@ -13,9 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="addresses")
-public class AddressM {
+@Getter @Setter public class AddressM {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,5 +40,8 @@ public class AddressM {
 	
 	@OneToMany(mappedBy="userAddress")
 	protected List<UserM> users;
+	
+	@OneToMany(mappedBy="address")
+	protected List<TransactionM> transactions;
 	
 }

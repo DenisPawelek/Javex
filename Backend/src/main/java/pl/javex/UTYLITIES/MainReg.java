@@ -97,29 +97,29 @@ public class MainReg extends MainController{
 
 //########		SERVICES
 
-@Service class  MAddress     extends  MainService<AddressM     >{}
-@Service class  MBoots       extends  MainService<BootsM       >{}
-@Service class  MBrand       extends  MainService<BrandM       >{}
-@Service class  MCategory    extends  MainService<CategoryM    >{}
-@Service class  MCity        extends  MainService<CityM        >{}
-@Service class  MColor       extends  MainService<ColorM       >{}
-@Service class  MDate        extends  MainService<DateM        >{}
-@Service class  MDescription extends  MainService<DescriptionM >{}
-@Service class  MEmail       extends  MainService<EmailM       >{}
-@Service class  MHoodie      extends  MainService<HoodieM      >{}
-@Service class  MJacket      extends  MainService<JacketM      >{}
-@Service class  MMaterial    extends  MainService<MaterialM    >{}
-@Service class  MPants       extends  MainService<PantsM       >{}
-@Service class  MPostalCode  extends  MainService<PostalCodeM  >{}
-@Service class  MProduct     extends  MainService<ProductM     >{}
-@Service class  MProductType extends  MainService<ProductTypeM >{}
-@Service class  MSex         extends  MainService<SexM         >{}
-@Service class  MShirt       extends  MainService<ShirtM       >{}
-@Service class  MSize        extends  MainService<SizeM        >{}
-@Service class  MSweater     extends  MainService<SweaterM     >{}
-@Service class  MType        extends  MainService<TypeM        >{}
-@Service class  MUser        extends  MainService<UserM        >{}
-
+//@Service class  MAddress     extends  MainService<AddressM     >{}
+//@Service class  MBoots       extends  MainService<BootsM       >{}
+//@Service class  MBrand       extends  MainService<BrandM       >{}
+//@Service class  MCategory    extends  MainService<CategoryM    >{}
+//@Service class  MCity        extends  MainService<CityM        >{}
+//@Service class  MColor       extends  MainService<ColorM       >{}
+//@Service class  MDate        extends  MainService<DateM        >{}
+//@Service class  MDescription extends  MainService<DescriptionM >{}
+//@Service class  MEmail       extends  MainService<EmailM       >{}
+//@Service class  MHoodie      extends  MainService<HoodieM      >{}
+//@Service class  MJacket      extends  MainService<JacketM      >{}
+//@Service class  MMaterial    extends  MainService<MaterialM    >{}
+//@Service class  MPants       extends  MainService<PantsM       >{}
+//@Service class  MPostalCode  extends  MainService<PostalCodeM  >{}
+//@Service class  MProduct     extends  MainService<ProductM     >{}
+//@Service class  MProductType extends  MainService<ProductTypeM >{}
+//@Service class  MSex         extends  MainService<SexM         >{}
+//@Service class  MShirt       extends  MainService<ShirtM       >{}
+//@Service class  MSize        extends  MainService<SizeM        >{}
+//@Service class  MSweater     extends  MainService<SweaterM     >{}
+//@Service class  MType        extends  MainService<TypeM        >{}
+//@Service class  MUser        extends  MainService<UserM        >{}
+//
 
 
 

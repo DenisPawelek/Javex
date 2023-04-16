@@ -11,9 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="dates")
-public class DateM {
+@Getter @Setter public class DateM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,4 +30,7 @@ public class DateM {
 	
 	@OneToMany(mappedBy="userJd")
 	protected List<UserM> usersjd;
+	
+	@OneToMany(mappedBy="date")
+	protected List<TransactionM> transactions;
 }
