@@ -28,7 +28,6 @@ import lombok.Setter;
 	@JoinColumn(name = "product_id", nullable = false)
 	protected ProductM product;
 	
-	
 	@Column(name="amount", nullable = false)
 	protected Long amount;
 	
