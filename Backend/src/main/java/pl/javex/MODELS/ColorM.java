@@ -1,6 +1,7 @@
 package pl.javex.MODELS;
 
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,6 +26,6 @@ import javax.persistence.GenerationType;
 	@Column(name = "color_name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;
 	
-	@OneToMany(mappedBy="color")
+	@ManyToMany
 	protected List<ProductM> products;
 }
