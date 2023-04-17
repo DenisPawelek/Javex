@@ -30,68 +30,7 @@ import pl.javex.MODELS.UserM;
 import services.MainService;
 
 @RestController("MainReg")
-public class MainReg extends MainController{
-
-}
-
-
-
-//########		__ORDER__
-
-
-//Address
-//Boots
-//Brand
-//Category
-//City
-//Color
-//Date
-//Description
-//Email
-//Hoodie
-//Jacket
-//Material
-//Pants
-//PostalCode
-//Product
-//ProductType
-//Sex
-//Shirt
-//Size
-//Sweater
-//Type
-//User
-
-
-
-
-//########		REPOS
-
-
-//interface RepoMultiAddress     extends JpaRepository<AddressM      , Long>{}
-//interface RepoMultiBoots       extends JpaRepository<BootsM        , Long>{}
-//interface RepoMultiBrand       extends JpaRepository<BrandM        , Long>{}
-//interface RepoMultiCategory    extends JpaRepository<CategoryM     , Long>{}
-//interface RepoMultiCity        extends JpaRepository<CityM         , Long>{}
-//interface RepoMultiColor       extends JpaRepository<ColorM        , Long>{}
-//interface RepoMultiDate        extends JpaRepository<DateM         , Long>{}
-//interface RepoMultiDescription extends JpaRepository<DescriptionM  , Long>{}
-//interface RepoMultiEmail       extends JpaRepository<EmailM        , Long>{}
-//interface RepoMultiHoodie      extends JpaRepository<HoodieM       , Long>{}
-//interface RepoMultiJacket      extends JpaRepository<JacketM       , Long>{}
-//interface RepoMultiMaterial    extends JpaRepository<MaterialM     , Long>{}
-//interface RepoMultiPants       extends JpaRepository<PantsM        , Long>{}
-//interface RepoMultiPostalCode  extends JpaRepository<PostalCodeM   , Long>{}
-//interface RepoMultiProduct     extends JpaRepository<ProductM      , Long>{}
-//interface RepoMultiProductType extends JpaRepository<ProductTypeM  , Long>{}
-//interface RepoMultiSex         extends JpaRepository<SexM          , Long>{}
-//interface RepoMultiShirt       extends JpaRepository<ShirtM        , Long>{}
-//interface RepoMultiSize        extends JpaRepository<SizeM         , Long>{}
-//interface RepoMultiSweater     extends JpaRepository<SweaterM      , Long>{}
-//interface RepoMultiType        extends JpaRepository<TypeM         , Long>{}
-//interface RepoMultiUser        extends JpaRepository<UserM         , Long>{}
-//                                                             
-
+public class REG_MainServices extends MainController{}
 
 
 

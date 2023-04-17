@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,7 +27,7 @@ import lombok.Setter;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected Long Id;
+	protected Long id;
 	
 	@Column(name = "amount", nullable=false)
 	protected long amount;
@@ -41,9 +43,11 @@ import lombok.Setter;
 	@JoinColumn(name="material_id", nullable=false)
 	protected MaterialM material;
 
-	@ManyToOne
-	@JoinColumn(name="color_id", nullable=false)
-	protected ColorM color;
+	@ManyToMany
+	@JoinTable(name="product_colors",
+	  joinColumns = @JoinColumn(name = "product_id"), 
+	  inverseJoinColumns = @JoinColumn(name = "color_id"))	
+	protected List<ColorM> colors;
 
 	@ManyToOne
 	@JoinColumn(name="category_id", nullable=false)
@@ -53,9 +57,11 @@ import lombok.Setter;
 	@JoinColumn(name="sex_id", nullable=false)
 	protected SexM sex;
 	
-	@ManyToOne
-	@JoinColumn(name="size_id", nullable=false)
-	protected SizeM size;
+	@ManyToMany
+	@JoinTable(name="product_sizes",
+	  joinColumns = @JoinColumn(name = "product_id"), 
+	  inverseJoinColumns = @JoinColumn(name = "size_id"))
+	protected List<SizeM> sizes;
 	
 	@ManyToOne
 	@JoinColumn(name="brand_id", nullable=false)
