@@ -7,9 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="emails")
-public class EmailM {
+@Getter @Setter public class EmailM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

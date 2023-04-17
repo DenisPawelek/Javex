@@ -10,13 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "categories")
-public class CategoryM {
+@Getter @Setter public class CategoryM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long id;
+	protected Long id;
 	
 	@Column(name = "category_name", columnDefinition = "varchar(15)", nullable=false)
 	protected String name;

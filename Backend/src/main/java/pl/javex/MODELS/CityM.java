@@ -10,9 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="cities")
-public class CityM {
+@Getter @Setter public class CityM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

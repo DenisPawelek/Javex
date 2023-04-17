@@ -12,12 +12,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table( name = "types" )
-public class TypeM {
+@Getter @Setter public class TypeM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected long id;
+	protected Long id;
 	
 	@Column(name = "type_name", columnDefinition = "varchar(31)", nullable=false)
 	protected String name;

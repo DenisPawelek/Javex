@@ -1,28 +1,20 @@
 package pl.javex.MODELS;
 
-import java.util.List;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table( name = "" )
-@Getter @Setter public class SizeM {
-	@Id
+@Table(name = "invoices")
+@Getter @Setter public class InvoiceM {
+
+	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
 	
-	@Column(name = "size_name", columnDefinition = "varchar(15)", nullable=false)
-	protected String name;
-	
-	@OneToMany(mappedBy="size")
-	protected List<ProductM> products;
 }
