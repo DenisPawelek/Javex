@@ -9,9 +9,11 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "admins")
-@Getter @Setter public class JacketM extends ProductM{
-	@Column(name = "hood", columnDefinition = "default false", nullable=false)
-	protected boolean hasHood;
-	@Column(name = "zip", columnDefinition = "default false", nullable=false)
-	protected boolean hasZip;
+@Getter
+@Setter
+public class JacketM extends ProductM {
+	@Column(name = "hood", columnDefinition = "boolean default false", nullable = false)
+	protected Boolean hasHood;
+	@Column(name = "zip", columnDefinition = "boolean default false", nullable = false)
+	protected Boolean hasZip;
 }

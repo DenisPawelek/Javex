@@ -28,6 +28,9 @@ import pl.javex.MODELS.TransactionM;
 import pl.javex.MODELS.TypeM;
 import pl.javex.MODELS.UserM;
 
+/**
+ * Klasa służąca do rejestrowania interfejsów repozytoriów rozszerzających {@link JpaRepository}
+ */
 public class REG_GenericcRepositories {}
 //########		REPOS
 

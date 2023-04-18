@@ -15,22 +15,24 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="dates")
-@Getter @Setter public class DateM {
+@Table(name = "dates")
+@Getter
+@Setter
+public class DateM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(name = "date", nullable=false)
+
+	@Column(name = "date", nullable = false)
 	protected Date date;
-	
-	@OneToMany(mappedBy="userBd")
+
+	@OneToMany(mappedBy = "userBd")
 	protected List<UserM> usersbd;
-	
-	@OneToMany(mappedBy="userJd")
+
+	@OneToMany(mappedBy = "userJd")
 	protected List<UserM> usersjd;
-	
-	@OneToMany(mappedBy="date")
+
+	@OneToMany(mappedBy = "date")
 	protected List<TransactionM> transactions;
 }

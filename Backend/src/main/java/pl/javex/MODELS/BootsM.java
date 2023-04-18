@@ -9,7 +9,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "boots")
-@Getter @Setter  public class BootsM extends ProductM{
-	@Column(name = "tie", nullable=false)
+@Getter
+@Setter
+public class BootsM extends ProductM {
+	@Column(name = "tie", nullable = false)
 	protected boolean hasTie;
 }

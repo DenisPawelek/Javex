@@ -11,12 +11,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="emails")
-@Getter @Setter public class EmailM {
+@Table(name = "emails")
+@Getter
+@Setter
+public class EmailM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "email_add", columnDefinition = "varchar(63)", nullable=false)
+	@Column(name = "email_add", columnDefinition = "varchar(63)", nullable = false)
 	protected String emailAdress;
 }

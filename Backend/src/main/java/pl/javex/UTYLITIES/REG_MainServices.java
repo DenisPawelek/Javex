@@ -1,38 +1,37 @@
 package pl.javex.UTYLITIES;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Service;
+//import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import controllers.MainController;
-import pl.javex.MODELS.AddressM;
-import pl.javex.MODELS.BootsM;
-import pl.javex.MODELS.BrandM;
-import pl.javex.MODELS.CategoryM;
-import pl.javex.MODELS.CityM;
-import pl.javex.MODELS.ColorM;
-import pl.javex.MODELS.DateM;
-import pl.javex.MODELS.DescriptionM;
-import pl.javex.MODELS.EmailM;
-import pl.javex.MODELS.HoodieM;
-import pl.javex.MODELS.JacketM;
-import pl.javex.MODELS.MaterialM;
-import pl.javex.MODELS.PantsM;
-import pl.javex.MODELS.PostalCodeM;
-import pl.javex.MODELS.ProductM;
-import pl.javex.MODELS.ProductTypeM;
-import pl.javex.MODELS.SexM;
-import pl.javex.MODELS.ShirtM;
-import pl.javex.MODELS.SizeM;
-import pl.javex.MODELS.SweaterM;
-import pl.javex.MODELS.TypeM;
-import pl.javex.MODELS.UserM;
-import services.MainService;
+//import pl.javex.MODELS.AddressM;
+//import pl.javex.MODELS.BootsM;
+//import pl.javex.MODELS.BrandM;
+//import pl.javex.MODELS.CategoryM;
+//import pl.javex.MODELS.CityM;
+//import pl.javex.MODELS.ColorM;
+//import pl.javex.MODELS.DateM;
+//import pl.javex.MODELS.DescriptionM;
+//import pl.javex.MODELS.EmailM;
+//import pl.javex.MODELS.HoodieM;
+//import pl.javex.MODELS.JacketM;
+//import pl.javex.MODELS.MaterialM;
+//import pl.javex.MODELS.PantsM;
+//import pl.javex.MODELS.PostalCodeM;
+//import pl.javex.MODELS.ProductM;
+//import pl.javex.MODELS.ProductTypeM;
+//import pl.javex.MODELS.SexM;
+//import pl.javex.MODELS.ShirtM;
+//import pl.javex.MODELS.SizeM;
+//import pl.javex.MODELS.SweaterM;
+//import pl.javex.MODELS.TypeM;
+//import pl.javex.MODELS.UserM;
+//import services.MainService;
 
 @RestController("MainReg")
-public class REG_MainServices extends MainController{}
-
-
+public class REG_MainServices extends MainController {
+}
 
 //########		SERVICES
 
@@ -59,7 +58,3 @@ public class REG_MainServices extends MainController{}
 //@Service class  MType        extends  MainService<TypeM        >{}
 //@Service class  MUser        extends  MainService<UserM        >{}
 //
-
-
-
-

@@ -12,13 +12,15 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "descriptions")
-@Getter @Setter public class DescriptionM {
+@Getter
+@Setter
+public class DescriptionM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
-	@Column(name = "description_text", columnDefinition = "varchar(1023)", nullable=false)
+
+	@Column(name = "description_text", columnDefinition = "varchar(1023)", nullable = false)
 	protected String value;
 
 }

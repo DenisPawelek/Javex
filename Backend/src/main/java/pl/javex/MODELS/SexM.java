@@ -14,16 +14,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table( name = "sex")
-@Getter @Setter public class SexM {
+@Table(name = "sex")
+@Getter
+@Setter
+public class SexM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
-	@Column(name = "sex_name", columnDefinition = "varchar(15)", nullable=false)
-	protected String name; 
-	
-	@OneToMany(mappedBy="sex")
+
+	@Column(name = "sex_name", columnDefinition = "varchar(15)", nullable = false)
+	protected String name;
+
+	@OneToMany(mappedBy = "sex")
 	protected List<ProductM> products;
 }

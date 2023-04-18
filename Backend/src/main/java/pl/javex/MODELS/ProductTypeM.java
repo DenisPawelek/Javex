@@ -13,18 +13,18 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
-
 @Entity
-@Table( name = "product_types" )
-@Getter @Setter public class ProductTypeM {
+@Table(name = "product_types")
+@Getter
+@Setter
+public class ProductTypeM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
-	@Column(name = "prodtype_name", columnDefinition = "varchar(15)", nullable=false)
+
+	@Column(name = "prodtype_name", columnDefinition = "varchar(15)", nullable = false)
 	protected String name;
-	
-	@OneToMany(mappedBy="productType")
+
+	@OneToMany(mappedBy = "productType")
 	protected List<TypeM> productTypes;
 }

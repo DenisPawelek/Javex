@@ -17,32 +17,34 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "transactions")
-@Getter @Setter public class TransactionM {
-	
+@Getter
+@Setter
+public class TransactionM {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	protected UserM user;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "address_id", nullable = false)
 	protected AddressM address;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "date_id", nullable = false)
 	protected DateM date;
-	
+
 	@OneToOne
 	@JoinColumn(name = "desc_id", nullable = false)
 	protected DescriptionM description;
-	
+
 	@OneToOne
 	@JoinColumn(name = "invoice_id", nullable = true)
 	protected InvoiceM invoice;
-	
-	@OneToMany(mappedBy="transaction")
+
+	@OneToMany(mappedBy = "transaction")
 	protected List<OrderM> orders;
 }

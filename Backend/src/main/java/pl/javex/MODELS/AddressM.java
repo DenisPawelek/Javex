@@ -17,31 +17,31 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="addresses")
-@Getter @Setter public class AddressM {
-	
+@Table(name = "addresses")
+@Getter
+@Setter
+public class AddressM {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-
 	private Long Id;
-	
-	@Column(name = "flat", columnDefinition = "varchar(8)", nullable=false)
+
+	@Column(name = "flat", columnDefinition = "varchar(8)", nullable = false)
 	protected String flat;
-	@Column(name = "house", columnDefinition = "varchar(4)", nullable=false)
+	@Column(name = "house", columnDefinition = "varchar(4)", nullable = false)
 	protected String house;
-	@Column(name = "street", columnDefinition = "varchar(31)", nullable=false)
+	@Column(name = "street", columnDefinition = "varchar(31)", nullable = false)
 	protected String street;
-	
 
 	@ManyToOne
-	@JoinColumn(name = "postal_id", nullable=false)
+	@JoinColumn(name = "postal_id", nullable = false)
 	protected PostalCodeM postalCode;
-	
-	@OneToMany(mappedBy="userAddress")
+
+	@OneToMany(mappedBy = "userAddress")
 	protected List<UserM> users;
-	
-	@OneToMany(mappedBy="address")
+
+	@OneToMany(mappedBy = "address")
 	protected List<TransactionM> transactions;
-	
+
 }

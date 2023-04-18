@@ -11,10 +11,12 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "invoices")
-@Getter @Setter public class InvoiceM {
+@Getter
+@Setter
+public class InvoiceM {
 
-	@Id	
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
+
 }

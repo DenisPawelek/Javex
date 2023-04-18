@@ -9,7 +9,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "pants")
-@Getter @Setter public class PantsM extends ProductM{
-	@Column(name = "long", columnDefinition = "default false", nullable=false)
-	protected boolean isLong;
+@Getter
+@Setter
+public class PantsM extends ProductM {
+	@Column(name = "longsleeve", columnDefinition = "boolean default false", nullable = false)
+	protected Boolean isLong;
 }

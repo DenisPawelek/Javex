@@ -1,25 +1,17 @@
 package pl.javex.UTYLITIES;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import controllers.GenericController;
 import pl.javex.MODELS.*;
 
-
-
-
 import services.GenericService;
-import services.MainService;
 
-
+/**
+ * Kontroler generyczny służący do rejestrowania serwisów rozszerzających {@link GenericService}.
+ * Rozszerza {@link GenericController}.
+ */
 @RestController("rejestrator")
 public class REG_GenericServices extends GenericController{}
 

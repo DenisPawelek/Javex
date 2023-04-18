@@ -15,15 +15,17 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "categories")
-@Getter @Setter public class CategoryM {
+@Getter
+@Setter
+public class CategoryM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
-	@Column(name = "category_name", columnDefinition = "varchar(15)", nullable=false)
+
+	@Column(name = "category_name", columnDefinition = "varchar(15)", nullable = false)
 	protected String name;
-	
-	@OneToMany(mappedBy="category")
+
+	@OneToMany(mappedBy = "category")
 	protected List<ProductM> products;
 }

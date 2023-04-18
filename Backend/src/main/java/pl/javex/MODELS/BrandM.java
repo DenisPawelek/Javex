@@ -17,19 +17,21 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "brands")
-@Getter @Setter public class BrandM {
+@Getter
+@Setter
+public class BrandM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
-	
+
 	@OneToMany(mappedBy = "brand")
 	protected List<ProductM> products;
 
 	@OneToOne
 	@JoinColumn(name = "desc_id")
 	protected DescriptionM description;
-	
-	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable=false)
+
+	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable = false)
 	protected String logoUrl;
 }

@@ -9,11 +9,12 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "sweaters")
-@Getter @Setter public class SweaterM extends ProductM{
+@Getter
+@Setter
+public class SweaterM extends ProductM {
 
-	
-	@Column(name = "golf", columnDefinition = "default false", nullable=false)
-	protected boolean hasGolf;	
-	@Column(name = "sleve", columnDefinition = "default false", nullable=false)
-	protected boolean hasSleeve;
+	@Column(name = "golf", columnDefinition = "boolean default false", nullable = false)
+	protected Boolean hasGolf;
+	@Column(name = "sleve", columnDefinition = "boolean default false", nullable = false)
+	protected Boolean hasSleeve;
 }
