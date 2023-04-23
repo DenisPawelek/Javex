@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,5 +28,8 @@ public class SizeM {
 	protected String name;
 
 	@ManyToMany
+	@JsonIgnoreProperties(value={
+			"sizes"
+	})
 	protected List<ProductM> products;
 }

@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +28,9 @@ public class BrandM {
 	protected Long id;
 
 	@OneToMany(mappedBy = "brand")
+	@JsonIgnoreProperties(value={
+			"brand"
+	})
 	protected List<ProductM> products;
 
 	@OneToOne
