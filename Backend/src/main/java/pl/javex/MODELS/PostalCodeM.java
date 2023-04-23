@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,9 +31,17 @@ public class PostalCodeM {
 
 	@ManyToOne
 	@JoinColumn(name = "city_id")
+	@JsonIgnoreProperties(value={
+			"postalCodes"
+	})
 	protected CityM city;
 
 	@OneToMany(mappedBy = "postalCode")
+	@JsonIgnoreProperties(value={
+			"users",
+			"transactions",
+			"postalCode"
+	})
 	protected List<AddressM> addresses;
 
 }

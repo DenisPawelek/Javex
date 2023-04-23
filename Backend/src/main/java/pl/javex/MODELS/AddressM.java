@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,12 +38,23 @@ public class AddressM {
 
 	@ManyToOne
 	@JoinColumn(name = "postal_id", nullable = false)
+	@JsonIgnoreProperties(value={
+			"addresses"
+	})
 	protected PostalCodeM postalCode;
 
+	
 	@OneToMany(mappedBy = "userAddress")
+	@JsonIgnoreProperties(value={
+			"transactions",
+			"userAddress"
+	})
 	protected List<UserM> users;
 
 	@OneToMany(mappedBy = "address")
+	@JsonIgnoreProperties(value={
+			"address"
+	})
 	protected List<TransactionM> transactions;
 
 }
