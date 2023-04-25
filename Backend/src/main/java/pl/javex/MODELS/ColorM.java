@@ -6,6 +6,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,6 +30,7 @@ public class ColorM {
 	@Column(name = "color_name", columnDefinition = "varchar(31)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@ManyToMany
 	@JsonIgnoreProperties(value={
 			"colors"

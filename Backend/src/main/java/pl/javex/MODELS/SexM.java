@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.AccessLevel;
 
 @Entity
 @Table(name = "sex")
@@ -28,6 +29,7 @@ public class SexM {
 	@Column(name = "sex_name", columnDefinition = "varchar(15)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "sex")
 	@JsonIgnoreProperties(value={
 			"sex"

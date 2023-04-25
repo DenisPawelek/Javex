@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,7 @@ public class CategoryM {
 	@Column(name = "category_name", columnDefinition = "varchar(15)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "category")
 	@JsonIgnoreProperties(value={
 			"category"

@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,16 +28,20 @@ public class BrandM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "brand")
 	@JsonIgnoreProperties(value={
 			"brand"
 	})
 	protected List<ProductM> products;
 
+	@Column(name = "brand_name", columnDefinition = "varchar(100)", nullable = false)
+	protected String name;
+	
 	@OneToOne
 	@JoinColumn(name = "desc_id")
 	protected DescriptionM description;
 
-	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable = false)
+	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable = true)
 	protected String logoUrl;
 }
