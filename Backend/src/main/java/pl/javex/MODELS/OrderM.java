@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +30,9 @@ public class OrderM {
 
 	@ManyToOne
 	@JoinColumn(name = "product_id", nullable = false)
+	@JsonIgnoreProperties(value={
+			"orders"
+	})
 	protected ProductM product;
 
 	@Column(name = "amount", nullable = false)

@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,10 +30,18 @@ public class TypeM {
 	@Column(name = "type_name", columnDefinition = "varchar(31)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@ManyToOne
 	@JoinColumn(name = "id_product_type")
+	@JsonIgnoreProperties(value={
+			"productTypes"
+	})
 	protected ProductTypeM productType;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "type")
+	@JsonIgnoreProperties(value={
+			"type"
+	})
 	protected List<ProductM> products;
 }

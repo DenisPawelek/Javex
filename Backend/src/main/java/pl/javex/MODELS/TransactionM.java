@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,14 +29,26 @@ public class TransactionM {
 
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
+	@JsonIgnoreProperties(value={
+			"transactions"
+	})
 	protected UserM user;
 
 	@ManyToOne
 	@JoinColumn(name = "address_id", nullable = false)
+	@JsonIgnoreProperties(value={
+			"users",
+			"transactions"
+	})
 	protected AddressM address;
 
 	@ManyToOne
 	@JoinColumn(name = "date_id", nullable = false)
+	@JsonIgnoreProperties(value={
+			"usersbd",
+			"usersjd",
+			"transactions"
+	})
 	protected DateM date;
 
 	@OneToOne
@@ -46,5 +60,8 @@ public class TransactionM {
 	protected InvoiceM invoice;
 
 	@OneToMany(mappedBy = "transaction")
+	@JsonIgnoreProperties(value={
+			"transaction"
+	})
 	protected List<OrderM> orders;
 }

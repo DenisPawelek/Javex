@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +28,10 @@ public class CityM {
 	protected String name;
 
 	@OneToMany(mappedBy = "city")
+	@JsonIgnoreProperties(value={
+			"addresses",
+			"city"
+	})
 	protected List<PostalCodeM> postalCodes;
 
 }
