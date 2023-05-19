@@ -2,6 +2,7 @@ package pl.javex.MODELS;
 
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -31,9 +32,9 @@ public class ColorM {
 	protected String name;
 
 	@Getter(AccessLevel.PRIVATE)
-	@ManyToMany
+	@OneToMany(mappedBy = "color")
 	@JsonIgnoreProperties(value={
-			"colors"
+			"color"
 	})
-	protected List<ProductM> products;
+	protected List<ReserveM> reserves;
 }

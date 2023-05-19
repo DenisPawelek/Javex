@@ -37,8 +37,8 @@ public class GenericService<E extends Object> extends MainService<E> {
 		return (E) repo.findById(id);
 	}
 
-	public void AddItem(E Item) {
-		repo.save(Item);
+	public E AddItem(E Item) {
+		return repo.save(Item);
 	}
 
 	public void AddItems(List<E> Items) {
