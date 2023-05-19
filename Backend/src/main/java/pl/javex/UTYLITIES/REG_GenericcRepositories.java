@@ -20,6 +20,7 @@ import pl.javex.MODELS.PantsM;
 import pl.javex.MODELS.PostalCodeM;
 import pl.javex.MODELS.ProductM;
 import pl.javex.MODELS.ProductTypeM;
+import pl.javex.MODELS.ReserveM;
 import pl.javex.MODELS.SexM;
 import pl.javex.MODELS.ShirtM;
 import pl.javex.MODELS.SizeM;
@@ -51,6 +52,7 @@ interface RepoPants       extends JpaRepository<PantsM        , Long>{}
 interface RepoPostalCode  extends JpaRepository<PostalCodeM   , Long>{}
 interface RepoProduct     extends JpaRepository<ProductM      , Long>{}
 interface RepoProductType extends JpaRepository<ProductTypeM  , Long>{}
+interface RepoReserve     extends JpaRepository<ReserveM      , Long>{}
 interface RepoSex         extends JpaRepository<SexM          , Long>{}
 interface RepoShirt       extends JpaRepository<ShirtM        , Long>{}
 interface RepoSize        extends JpaRepository<SizeM         , Long>{}

@@ -8,10 +8,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "boots")
+@Table(name = "bootss")
 @Getter
 @Setter
 public class BootsM extends ProductM {
 	@Column(name = "tie", nullable = false)
-	protected boolean hasTie;
+	protected Boolean hasTie;
 }

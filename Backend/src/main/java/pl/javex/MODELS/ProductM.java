@@ -24,7 +24,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "products")
+@Table(name = "productsuss")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
@@ -32,10 +32,10 @@ public class ProductM {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected Long id;
+	private Long id;
 
-	@Column(name = "amount", nullable = false)
-	protected Long amount;
+//	@Column(name = "amount", nullable = false)
+//	protected Long amount;
 
 	@Column(name = "price", nullable = false)
 	protected Long price;
@@ -51,12 +51,12 @@ public class ProductM {
 	})
 	protected MaterialM material;
 
-	@ManyToMany
-	@JoinTable(name = "product_colors", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
-	@JsonIgnoreProperties(value={
-			"products"
-	})
-	protected List<ColorM> colors;
+//	@ManyToMany
+//	@JoinTable(name = "product_colors", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
+//	@JsonIgnoreProperties(value={
+//			"products"
+//	})
+//	protected List<ColorM> colors;
 
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
@@ -72,13 +72,19 @@ public class ProductM {
 	})
 	protected SexM sex;
 
-	@ManyToMany
-	@JoinTable(name = "product_sizes", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "size_id"))
-	@JsonIgnoreProperties(value={
-			"products"
-	})
-	protected List<SizeM> sizes;
+//	@ManyToMany
+//	@JoinTable(name = "product_sizes", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "size_id"))
+//	@JsonIgnoreProperties(value={
+//			"products"
+//	})
+//	protected List<SizeM> sizes;
 
+	@OneToMany(mappedBy = "product")
+	@JsonIgnoreProperties(value={
+			"product"
+	})
+	private List<ReserveM> reserves;
+	
 	@ManyToOne
 	@JoinColumn(name = "brand_id", nullable = false)
 	@JsonIgnoreProperties(value={
@@ -99,6 +105,6 @@ public class ProductM {
 	@JsonIgnoreProperties(value={
 			"product"
 	})
-	protected List<OrderM> orders;
+	private List<OrderM> orders;
 
 }

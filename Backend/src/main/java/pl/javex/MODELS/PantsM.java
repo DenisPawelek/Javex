@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "pants")
+@Table(name = "pantsuss")
 @Getter
 @Setter
 public class PantsM extends ProductM {
