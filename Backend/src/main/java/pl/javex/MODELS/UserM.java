@@ -32,15 +32,17 @@ public class UserM {
 	protected String name;
 	@Column(name = "surr", columnDefinition = "varchar(63)", nullable = false)
 	protected String surrname;
-
 	@Column(name = "pass_hash", columnDefinition = "varchar(255)", nullable = false)
 	protected String password;
 	@Column(name = "user_name", columnDefinition = "varchar(255)", nullable = false)
 	protected String userName;
-
+	@Column(name = "role", nullable = false)
+	protected Integer role;
 	@Column(name = "phone_number", nullable = false)
 	protected Integer phone;
 
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "address_id", nullable = false)
 	@JsonIgnoreProperties(value={
@@ -48,14 +50,9 @@ public class UserM {
 			"transactions"
 	})
 	protected AddressM userAddress;
-
 	@OneToOne
 	@JoinColumn(name = "email_id", nullable = false)
 	protected EmailM email;
-
-	@Column(name = "role", nullable = false)
-	protected Integer role;
-
 	@ManyToOne
 	@JoinColumn(name = "bd_id", nullable = false)
 	@JsonIgnoreProperties(value={
@@ -64,7 +61,6 @@ public class UserM {
 			"transactions"
 	})
 	protected DateM userBd;
-	
 	@ManyToOne
 	@JoinColumn(name = "jd_id", nullable = false)
 	@JsonIgnoreProperties(value={
@@ -74,10 +70,11 @@ public class UserM {
 	})
 	protected DateM userJd;
 
+	
 	@OneToMany(mappedBy = "user")
 	@JsonIgnoreProperties(value={
 			"user"
 	})
-	protected List<TransactionM> transactions;
+	private List<TransactionM> transactions;
 
 }

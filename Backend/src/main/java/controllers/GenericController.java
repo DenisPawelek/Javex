@@ -79,7 +79,7 @@ public class GenericController<T> extends MainController {
 				ObjectMapper jacksonMapper = new ObjectMapper();
 				list.get(i).AddItem(jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
 				l = new ArrayList<Object>();
-				l.add("ADDED SINGLE ITEMS");
+				l.add("ADDED SINGLE ITEM");
 				return l;
 			}
 		}
