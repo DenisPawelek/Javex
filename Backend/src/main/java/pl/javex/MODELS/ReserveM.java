@@ -59,4 +59,10 @@ public class ReserveM {
 	})
 	protected SizeM size;
 	
+	@OneToMany(mappedBy = "reserve")
+	@JsonIgnoreProperties(value={
+			"reserve"
+	})
+	protected List<OrderM> orders;
+	
 }

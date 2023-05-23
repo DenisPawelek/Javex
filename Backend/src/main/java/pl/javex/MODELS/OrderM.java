@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "orderssuss")
 @Getter
 @Setter
 public class OrderM {
@@ -28,13 +28,20 @@ public class OrderM {
 	@JoinColumn(name = "transaction_id", nullable = false)
 	protected TransactionM transaction;
 
+//	@ManyToOne
+//	@JoinColumn(name = "product_id", nullable = false)
+//	@JsonIgnoreProperties(value={
+//			"orders"
+//	})
+//	protected ProductM product;
+
 	@ManyToOne
-	@JoinColumn(name = "product_id", nullable = false)
+	@JoinColumn(name = "reserve_id", nullable = false)
 	@JsonIgnoreProperties(value={
 			"orders"
 	})
-	protected ProductM product;
-
+	protected ReserveM reserve;
+	
 	@Column(name = "amount", nullable = false)
 	protected Long amount;
 

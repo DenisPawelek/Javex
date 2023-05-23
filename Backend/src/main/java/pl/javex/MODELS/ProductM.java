@@ -76,11 +76,11 @@ public class ProductM {
 			"product"
 	})
 	private List<ReserveM> reserves;
-	@Getter(AccessLevel.PRIVATE)
-	@OneToMany(mappedBy = "product")
-	@JsonIgnoreProperties(value={
-			"product"
-	})
-	private List<OrderM> orders;
+//	@Getter(AccessLevel.PRIVATE)
+//	@OneToMany(mappedBy = "product")
+//	@JsonIgnoreProperties(value={
+//			"product"
+//	})
+//	private List<OrderM> orders;
 
 }

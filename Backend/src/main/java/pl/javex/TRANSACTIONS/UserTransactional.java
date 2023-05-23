@@ -37,8 +37,6 @@ public class UserTransactional {
 		
 		user.setUserName(userStruct.getUser().getUserName());
 		
-		
-		
 		Example<UserM> userExample = Example.of(user, ExampleMatcher.matchingAny());
 		
 		if(r_user.exists(userExample)){ss.add("not null"); return ss;}
@@ -49,19 +47,16 @@ public class UserTransactional {
 		Example<EmailM> emailExample = Example.of(userStruct.getEmail());
 		if(r_email.exists(emailExample)) {ss.add("email exists"); return ss;}
 		user.setEmail(r_email.save(userStruct.getEmail()));
-//		
+		
 		DateM birthDate = new DateM();
 		birthDate.setDate(userStruct.getBirth());
-//		
+		
 		Example<DateM> birthDateExample = Example.of(birthDate);
 		Optional<DateM> birthDateOptional = r_date.findOne(birthDateExample);
-//		
+		
 		if(birthDateOptional.isPresent()) {user.setUserBd(birthDateOptional.get());}
 		else {user.setUserBd(r_date.save(birthDate));}
-//		
-//		if(birthDateOptional.isPresent()) {user.setUserJd(birthDateOptional.get());}
-//		else {user.setUserJd(r_date.save(userStruct.getBirth()));}
-//		
+
 		DateM joinDate = new DateM();
 		
 		Calendar cal = Calendar.getInstance();
@@ -83,32 +78,9 @@ public class UserTransactional {
 		
 		
 		user.setUserAddress(at.addAddress(userStruct.getAddressStruct()));
-//		
+		
 		r_user.save(user);
-//		CityM city = addressStruct.getCity();
-//		PostalCodeM postal = addressStruct.getPostalCode();
-//		AddressM address = addressStruct.getAddress();
-//		
-//		Example<CityM> cExample = Example.of(city);
-//		Optional<CityM> cOptional = r_city.findOne(cExample);
-//		if(cOptional.isEmpty()) {
-//			city = r_city.save(city);
-//			postal.setCity(city);
-//			postal = r_postal.save(postal);	
-//			address.setPostalCode(postal);
-//			return r_address.save(address);
-//		}
-//		
-//		city = cOptional.get();
-//		postal.setCity(city);
-//		
-//		Example<PostalCodeM> pExample = Example.of(postal);
-//		Optional<PostalCodeM> pOptional = r_postal.findOne(pExample);
-//		if(pOptional.isEmpty()) {postal = r_postal.save(postal);}
-//		else {postal = pOptional.get();}
-//		
-//		address.setPostalCode(postal);
-//		return r_address.save(address);
+
 		return ss;
 	}
 	
