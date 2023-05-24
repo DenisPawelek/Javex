@@ -12,5 +12,4 @@ npm install @emotion/styled
 npm uninstall node-sass
 npm install sass --save-dev
 npm install -S prop-types
-npm install @stripe
 npm install @stripe/stripe-js

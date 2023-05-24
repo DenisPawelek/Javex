@@ -16,7 +16,7 @@ const Categories = () => {
           <button>
           
             <Link  className="link" to="/products/1">
-              MID SEASON SALE
+              WYPRZEDAŻ
             </Link>
             
           </button>

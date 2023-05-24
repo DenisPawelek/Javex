@@ -18,6 +18,7 @@
     }
   
     .icons{
+      width: -moz-fit-content;
       width: fit-content;
       display: flex;
       position: absolute;
@@ -35,6 +36,13 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+
+        background-color: #f3ebf6;
+        border-radius: 8px;
+
+        &:hover{
+          background-color: #dfdfdf;
+        }
       }
     }
   }
