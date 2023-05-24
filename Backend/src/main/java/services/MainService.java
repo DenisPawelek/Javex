@@ -20,9 +20,9 @@ import org.springframework.stereotype.Service;
 		return repo.findAll();
 	}
 	
-	public void AddItem(E Item)
+	public E AddItem(E Item)
 	{
-		repo.save(Item);
+		return repo.save(Item);
 	}
 	
 	public void AddItems(List<E> Items)

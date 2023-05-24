@@ -27,7 +27,7 @@ public class AddressM {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Long Id;
+	private Long id;
 
 	@Column(name = "flat", columnDefinition = "varchar(8)", nullable = false)
 	protected String flat;
@@ -35,7 +35,8 @@ public class AddressM {
 	protected String house;
 	@Column(name = "street", columnDefinition = "varchar(31)", nullable = false)
 	protected String street;
-
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "postal_id", nullable = false)
 	@JsonIgnoreProperties(value={
@@ -43,6 +44,7 @@ public class AddressM {
 	})
 	protected PostalCodeM postalCode;
 
+	
 	
 	@OneToMany(mappedBy = "userAddress")
 	@JsonIgnoreProperties(value={

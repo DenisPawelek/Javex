@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,9 +30,9 @@ public class SizeM {
 	protected String name;
 
 	@Getter(AccessLevel.PRIVATE)
-	@ManyToMany
+	@OneToMany(mappedBy = "color")
 	@JsonIgnoreProperties(value={
-			"sizes"
+			"size"
 	})
-	protected List<ProductM> products;
+	protected List<ReserveM> reserves;
 }
