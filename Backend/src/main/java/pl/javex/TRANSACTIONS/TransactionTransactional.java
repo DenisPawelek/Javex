@@ -1,5 +1,6 @@
 package pl.javex.TRANSACTIONS;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,9 @@ import pl.javex.MODELS.ReserveM;
 import pl.javex.MODELS.TransactionM;
 import pl.javex.MODELS.UserM;
 import pl.javex.TRANSACTIONS.__DATA_STRUCTS.StructTT;
+import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_NoSuchProductReserve;
+import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_NoSuchUser;
+import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_OrderAmountTooLarge;
 
 @Component
 public class TransactionTransactional {
@@ -33,18 +37,18 @@ public class TransactionTransactional {
 	@Autowired AddressTransactional at;
 	
 	@Transactional
-	public List<String> tryRegisterTransaction(StructTT transactionStruct) throws Exception{
+	public List<String> tryRegisterTransaction(StructTT transactionStruct) throws SQLException{
 		
 		List<String> ss = new ArrayList<String>();
 		
 		Optional<UserM> user = r_user.findById(transactionStruct.getUser().getId());
 		
-		if(user.isEmpty()) { throw new Exception();}
+		if(user.isEmpty()) { throw new E_NoSuchUser("User undefined", new Exception());}
 		for(OrderM order : transactionStruct.getOrders()) {
 			
 			Optional<ReserveM> reserve = r_reserve.findById(order.getReserve().getId());
-			if(reserve.isEmpty()) throw new Exception();
-			if(reserve.get().getAmount() - order.getAmount() < 0) throw new Exception();
+			if(reserve.isEmpty()) throw new E_NoSuchProductReserve("Given reserve does not exist", new Exception());
+			if(reserve.get().getAmount() - order.getAmount() < 0) throw new E_OrderAmountTooLarge("Order amount exceeds reserve" + order.getReserve().getProduct().getName(), new Exception());
 			reserve.get().setAmount(reserve.get().getAmount() - order.getAmount());
 			order.setPriceUnitDiscounted(reserve.get().getProduct().getPrice());
 			order.setPriceUnitRaw(reserve.get().getProduct().getPrice());
