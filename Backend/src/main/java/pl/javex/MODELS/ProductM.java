@@ -36,6 +36,8 @@ public class ProductM {
 	
 	@Column(name = "price", nullable = false)
 	protected Long price;	
+	@Column(name = "name", nullable = false)
+	protected String name;	
 	@OneToOne
 	@JoinColumn(name = "desc_id", nullable = false)
 	protected DescriptionM description;
