@@ -1,9 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { persistor, store } from "./redux/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 // import * as serviceWorker from './serviceWorker';
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={"loading"} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
+);
+
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -12,8 +27,8 @@ import reportWebVitals from './reportWebVitals';
 //   </React.StrictMode>
 // );
 
-const element = React.createElement('h1', { className: 'greeting' }, 'Javex');
-ReactDOM.render(element, document.getElementById('root'));
+// const element = React.createElement('h1', { className: 'greeting' }, 'Javex');
+// ReactDOM.render(element, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
