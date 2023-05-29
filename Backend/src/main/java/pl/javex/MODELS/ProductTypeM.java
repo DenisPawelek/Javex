@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,7 @@ public class ProductTypeM {
 	@Column(name = "prodtype_name", columnDefinition = "varchar(15)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "productType")
 	@JsonIgnoreProperties(value={
 			"productType"

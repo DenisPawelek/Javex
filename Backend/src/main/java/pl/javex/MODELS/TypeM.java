@@ -30,12 +30,12 @@ public class TypeM {
 	@Column(name = "type_name", columnDefinition = "varchar(31)", nullable = false)
 	protected String name;
 
-	@Getter(AccessLevel.PRIVATE)
+	//@Getter(AccessLevel.PRIVATE)
 	@ManyToOne
 	@JoinColumn(name = "id_product_type")
-	@JsonIgnoreProperties(value={
-			"productTypes"
-	})
+	//@JsonIgnoreProperties(value={
+			//"productTypes"
+	//})
 	protected ProductTypeM productType;
 
 	@Getter(AccessLevel.PRIVATE)
