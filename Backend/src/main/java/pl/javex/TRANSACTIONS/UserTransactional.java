@@ -1,5 +1,6 @@
 package pl.javex.TRANSACTIONS;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +19,8 @@ import pl.javex.MODELS.DateM;
 import pl.javex.MODELS.EmailM;
 import pl.javex.MODELS.UserM;
 import pl.javex.TRANSACTIONS.__DATA_STRUCTS.StructTU;
+import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_EmailAlreadyTaken;
+import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_UserNameTaken;
 
 @Component
 public class UserTransactional {
@@ -29,7 +32,7 @@ public class UserTransactional {
 	@Autowired AddressTransactional at;
 	
 	@Transactional
-	public List<String> tryRegister(StructTU userStruct){
+	public List<String> tryRegister(StructTU userStruct) throws SQLException{
 
 		List<String> ss = new ArrayList<String>();
 		
@@ -39,13 +42,13 @@ public class UserTransactional {
 		
 		Example<UserM> userExample = Example.of(user, ExampleMatcher.matchingAny());
 		
-		if(r_user.exists(userExample)){ss.add("not null"); return ss;}
+		if(r_user.exists(userExample)){throw new E_UserNameTaken("User of that name already exists", new Exception());}
 		
 		user = userStruct.getUser();
 		
 		
 		Example<EmailM> emailExample = Example.of(userStruct.getEmail());
-		if(r_email.exists(emailExample)) {ss.add("email exists"); return ss;}
+		if(r_email.exists(emailExample)) { throw new E_EmailAlreadyTaken("There already exists accont connected with given email address", new Exception());}
 		user.setEmail(r_email.save(userStruct.getEmail()));
 		
 		DateM birthDate = new DateM();
