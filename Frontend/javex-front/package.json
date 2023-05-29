@@ -1,5 +1,5 @@
 {
-  "name": "javex-front",
+  "name": "javex-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,10 @@
     "@stripe/stripe-js": "^1.53.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@fontsource/kaushan-script": "^4.5.2",
+    "@fontsource/sirin-stencil": "^4.5.2",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "prop-types": "^15.8.1",
@@ -21,6 +25,16 @@
     "react-switch": "^7.0.0",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "framer-motion": "^6.5.1",
+    "gsap": "^3.9.1",
+    "locomotive-scroll": "^4.1.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-locomotive-scroll": "^0.2.0",
+    "react-router-dom": "^6.11.2",
+    "react-scripts": "5.0.0",
+    "reactstrap": "^9.1.10",
+    "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -28,6 +42,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
