@@ -1,82 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { children, useState } from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home/Home';
-import Product from './pages/Product/Product';
-//import Products from './pages/Products/Products';
-import './App.scss'
+import "locomotive-scroll/dist/locomotive-scroll.css";
 
-const Layout = () => {
-  return (
-    <div className='app'>
-      <Navbar/>
-      <Outlet/>
-      <Footer/>
-    </div>
-  )
-}
+import { AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import { ThemeProvider } from "styled-components";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      // {
-      //   path: "/products/:id",
-      //   element: <Products />,
-      // },
-      {
-        path: "/product/:id",
-        element: <Product />,
-      },
-    ],
-  },
-]);
+import Loader from "./components/Loader";
+import ScrollTriggerProxy from "./components/ScrollTriggerProxy";
+import About from "./sections/About";
+import Footer from "./sections/Footer";
+import Home from "./sections/Home";
+import Marquee from "./sections/Marquee";
+import NewArrival from "./sections/NewArrival";
+import Shop from "./sections/Shop";
+import GlobalStyles from "./styles/GlobalStyles";
+import { dark } from "./styles/Themes";
 
-/**
- * 
- * 
- * 
- * 
- */
 function App() {
-  return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+  
+  const containerRef = useRef(null);
+  const [Loaded, setLoaded] = useState(false);
 
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <p>
-    //       This is a test of changing app.js.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    //   <div className="Javex">
-    //     <p> 
-    //       My new red div!
-    //     </p>
-    //   </div>
-    // </div>
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 3000);
+  }, []);
+
+  return (
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={dark}>
+        <LocomotiveScrollProvider
+          options={{
+            smooth: true,
+            smartphone: {
+              smooth: true,
+            },
+            tablet: {
+              smooth: true,
+            },
+          }}
+          watch={
+            []
+          }
+          containerRef={containerRef}
+        >
+          <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>
+          <main className="App" data-scroll-container ref={containerRef}>
+            <ScrollTriggerProxy />
+            <AnimatePresence>
+              {Loaded ? null : <Loader />}
+
+              <Home key="home" />
+              <About key="about" />
+              <Shop key="Shop" />
+              <Marquee key="marquee" />
+              <NewArrival key="new arrival" />
+              <Footer key="Footer" />
+            </AnimatePresence>
+          </main>
+        </LocomotiveScrollProvider>
+      </ThemeProvider>
+    </>
   );
 }
 
