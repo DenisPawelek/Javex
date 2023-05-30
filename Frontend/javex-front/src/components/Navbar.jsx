@@ -53,6 +53,8 @@ const MenuBtn = styled.li`
   justify-content: center;
   align-items: center;
 
+  
+
   transition: all 0.3s ease;
 
   @media (max-width: 40em) {
@@ -110,18 +112,13 @@ const Navbar = () => {
   };
 
   return (
-    <NavContainer
+    <NavContainer  
       click={+click}
       initial={{ y: `-100%` }}
       animate={{ y: 0 }}
       transition={{ duration: 2, delay: 5 /* 2 */ }}
     >
-      <MenuItems
-        drag="y"
-        dragConstraints={{ top: 0, bottom: 70 }}
-        dragElastic={0.05}
-        dragSnapToOrigin
-      >
+      <MenuItems>
         <MenuBtn onClick={() => setClick(!click)}>
           <span>MENU</span>
         </MenuBtn>
