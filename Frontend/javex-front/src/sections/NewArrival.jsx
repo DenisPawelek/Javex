@@ -187,7 +187,7 @@ const NewArrival = () => {
           y: '0',
         },
         {
-          y: '-100%',
+          y: '-50%',
           scrollTrigger: {
             trigger: scrollingElement,
             start: 'top top',
@@ -213,7 +213,7 @@ const NewArrival = () => {
       <Overlay />
 
       <Title
-        data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal"
+        data-scroll data-scroll-speed="-0.5" data-scroll-direction="horizontal"
       >
         Nowości
       </Title>

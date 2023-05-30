@@ -32,6 +32,7 @@ const LogoContainer = styled.div`
   img {
     width: 10vw;
     height: auto;
+    margin-left: 15px;
   }
 
   h3 {
@@ -130,11 +131,9 @@ const Footer = () => {
           width="300"
           height="300"
           src={Logo}
-          alt="Wibe"
-          data-scroll
-          data-scroll-speed="2"
+          alt="Javex"
         />
-        <h3 data-scroll data-scroll-speed="-1">
+        <h3>
         Javex
         </h3>
       </LogoContainer>
@@ -175,18 +174,8 @@ const Footer = () => {
           </li>
         </ul>
         <Bottom>
-          <span
-            data-scroll
-            data-scroll-speed="2"
-            data-scroll-direction="horizontal"
-          >
+          <span>
             Javex &copy; 2023. All Rights Reserved.
-          </span>
-          <span
-            data-scroll
-            data-scroll-speed="-2"
-            data-scroll-direction="horizontal"
-          >
           </span>
         </Bottom>
       </FooterComponent>
