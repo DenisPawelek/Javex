@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,13 +26,17 @@ public class BrandM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "brand")
 	protected List<ProductM> products;
 
+	@Column(name = "brand_name", columnDefinition = "varchar(100)", nullable = false)
+	protected String name;
+	
 	@OneToOne
 	@JoinColumn(name = "desc_id")
 	protected DescriptionM description;
 
-	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable = false)
+	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable = true)
 	protected String logoUrl;
 }

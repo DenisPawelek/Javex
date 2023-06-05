@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,10 +28,12 @@ public class TypeM {
 	@Column(name = "type_name", columnDefinition = "varchar(31)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@ManyToOne
 	@JoinColumn(name = "id_product_type")
 	protected ProductTypeM productType;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "type")
 	protected List<ProductM> products;
 }

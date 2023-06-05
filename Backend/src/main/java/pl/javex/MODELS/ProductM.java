@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -67,8 +68,9 @@ public class ProductM {
 
 	@ManyToOne
 	@JoinColumn(name = "type_id", nullable = false)
-	protected BrandM type;
+	protected TypeM type;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "product")
 	protected List<OrderM> orders;
 

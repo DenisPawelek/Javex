@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.AccessLevel;
 
 @Entity
 @Table(name = "sex")
@@ -26,6 +27,7 @@ public class SexM {
 	@Column(name = "sex_name", columnDefinition = "varchar(15)", nullable = false)
 	protected String name;
 
+	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "sex")
 	protected List<ProductM> products;
 }

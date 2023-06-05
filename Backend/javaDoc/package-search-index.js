@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"controllers"},{"l":"models"},{"l":"pl.javex"},{"l":"pl.javex.MODELS"},{"l":"pl.javex.UTYLITIES"},{"l":"repositories"},{"l":"services"}];updateSearchResults();
