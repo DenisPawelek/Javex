@@ -7,8 +7,11 @@ import useFetch from "../../hooks/useFetch";
 import PropTypes from "prop-types";
 
 const FeaturedProducts = ({ type }) => {
+  // const { data, loading, error } = useFetch(
+  //   `/products?populate=*&[filters][type][$eq]=${type}`
+  // );
   const { data, loading, error } = useFetch(
-    `/products?populate=*&[filters][type][$eq]=${type}`
+    `/many/Product`
   );
 
   return (

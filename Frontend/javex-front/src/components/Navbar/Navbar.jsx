@@ -21,6 +21,46 @@ const products = useSelector((state) => state.cart.products);
         <div className="wrapper">
         <div className="left">
 
+      <div className="item">
+        <Link className="link" to="/g/many/products/woman">
+          KOBIETA
+        </Link>
+      </div>
+      <div className="item">
+        <Link className="link" to="/g/many/products/man">
+          MĘŻCZYZNA
+        </Link>
+      </div>
+      <div className="item">
+        <Link className="link" to="/g/many/products/girl">
+          DZIEWCZYNKA
+        </Link>
+      </div>
+      <div className="item">
+        <Link className="link" to="/g/many/products/boy">
+          CHŁOPIEC
+        </Link>
+      </div>
+      <div className="itemMidSeasonSale">
+        <Link className="link" to="/g/many/products/sale">
+          MID SEASON SALE
+        </Link>
+      </div>
+      <div className="item">
+        <Link className="link" to="/">
+          STRONA GŁÓWNA
+        </Link>
+      </div>
+      <div className="item">
+        <Link className="link" to="/">
+          O NAS
+        </Link>
+      </div>
+      <div className="item">
+        <Link className="link" to="/">
+          KONTAKT
+        </Link>
+      </div>
         {/*<div className="item">
             <img src="/img/en.png" alt="" />
             <KeyboardArrowDownIcon/>
