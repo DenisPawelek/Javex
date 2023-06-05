@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AccessLevel;
@@ -29,5 +31,8 @@ public class SexM {
 
 	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "sex")
+	@JsonIgnoreProperties(value={
+			"sex"
+	})
 	protected List<ProductM> products;
 }

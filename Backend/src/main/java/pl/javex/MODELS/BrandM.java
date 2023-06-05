@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +28,9 @@ public class BrandM {
 
 	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "brand")
+	@JsonIgnoreProperties(value={
+			"brand"
+	})
 	protected List<ProductM> products;
 
 	@Column(name = "brand_name", columnDefinition = "varchar(100)", nullable = false)

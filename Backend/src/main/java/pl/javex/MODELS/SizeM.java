@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +29,12 @@ public class SizeM {
 	protected String name;
 
 	@Getter(AccessLevel.PRIVATE)
+	@OneToMany(mappedBy = "color")
+	@JsonIgnoreProperties(value={
+			"size"
+	})
+	protected List<ReserveM> reserves;
 	@ManyToMany
 	protected List<ProductM> products;
+>>>>>>> Stashed changes
 }
