@@ -5,8 +5,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+<<<<<<< Updated upstream
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+=======
+>>>>>>> Stashed changes
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,9 +35,14 @@ public class ColorM {
 	protected String name;
 
 	@Getter(AccessLevel.PRIVATE)
+<<<<<<< Updated upstream
 	@OneToMany(mappedBy = "color")
 	@JsonIgnoreProperties(value={
 			"color"
 	})
 	protected List<ReserveM> reserves;
+=======
+	@ManyToMany
+	protected List<ProductM> products;
+>>>>>>> Stashed changes
 }

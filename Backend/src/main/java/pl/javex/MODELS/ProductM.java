@@ -17,8 +17,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+<<<<<<< Updated upstream
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+=======
+>>>>>>> Stashed changes
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -67,12 +70,18 @@ public class ProductM {
 	protected BrandM brand;
 	@ManyToOne
 	@JoinColumn(name = "type_id", nullable = false)
+<<<<<<< Updated upstream
 	@JsonIgnoreProperties(value={
 			"products",
 			"productType"
 	})
 	protected TypeM type;
 	
+=======
+	protected TypeM type;
+
+	@Getter(AccessLevel.PRIVATE)
+>>>>>>> Stashed changes
 	@OneToMany(mappedBy = "product")
 	@JsonIgnoreProperties(value={
 			"product"
