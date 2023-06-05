@@ -20,7 +20,7 @@ export default function useLocoScroll() {
     tablet: {
         smooth: false
     }
-    });
+    },);
 
     locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -64,5 +64,5 @@ export default function useLocoScroll() {
         console.log("Kill", locoScroll);
       }
     };
-  });
+  }, []);
 }

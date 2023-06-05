@@ -142,56 +142,55 @@ const Product = ({ img, title = "" }) => {
 
 const Shop = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const ref = useRef(null);
+  const tl = gsap.timeline();
 
-  const Horizontalref = useRef(null);
+  const SectionRef = useRef(null);
+  const HorizontalRef = useRef(null);
 
   useLayoutEffect(() => {
-    let element = ref.current;
+    const section = SectionRef.current;
+    const horizontal = HorizontalRef.current;
 
-    let scrollingElement = Horizontalref.current;
+    //setTimeout(() => {
+    tl.to(section, {
+      scrollTrigger: {
+        id: "section",
+        trigger: section,
+        pin: true,
+        start: "top top",
+        end: horizontal.offsetWidth,
+        scroller: ".App",
+        scrub: 2,
+        //markers: true,
+      },
+      height: horizontal.offsetWidth,
+      ease: "none",
+    });
 
-    let pinWrapWidth = scrollingElement.offsetWidth;
-    let t1 = gsap.timeline();
-
-    setTimeout(() => {
-      t1.to(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: "top top",
-          end: `${pinWrapWidth} bottom`,
-          scroller: ".App",
-          scrub: 1,
-          pin: true,
-        },
-        height: `${scrollingElement.scrollWidth}px`,
-        ease: "none",
-      });
-
-      t1.to(scrollingElement, {
-        scrollTrigger: {
-          trigger: scrollingElement,
-          start: "top top",
-          end: `${pinWrapWidth} bottom`,
-          scroller: ".App",
-          scrub: 1,
-        },
-        x: -pinWrapWidth,
-
-        ease: "none",
-      });
-      ScrollTrigger.refresh();
-    }, 1000);
+    tl.to(horizontal, {
+      scrollTrigger: {
+        id: "horizontal",
+        trigger: horizontal,
+        start: "top top",
+        end: horizontal.offsetWidth,
+        scroller: ".App",
+        scrub: 2,
+        //markers: true,
+      },
+      x: -horizontal.offsetWidth,
+      ease: "none",
+    });
     ScrollTrigger.refresh();
 
     return () => {
-      t1.kill();
-      ScrollTrigger.kill();
+      tl.kill();
+      ScrollTrigger.getById("section").kill();
+      //ScrollTrigger.killAll();
     };
-  }, []);
+  }, [tl]);
 
   return (
-    <Section ref={ref} id="shop">
+    <Section ref={SectionRef} id="shop">
       <Title data-scroll data-scroll-speed="-1">
         Nowa kolekcja
       </Title>
@@ -209,7 +208,7 @@ const Shop = () => {
           country and look different.
         </p>
       </Left>
-      <Right data-scroll ref={Horizontalref}>
+      <Right data-scroll ref={HorizontalRef}>
         <Product img={img3} title="Kobieta" />
         <Product img={img4} title="Mężczyzna" />
         <Product img={img1} title="Dziewczynka" />

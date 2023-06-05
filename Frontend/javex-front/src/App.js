@@ -17,7 +17,6 @@ import GlobalStyles from "./styles/GlobalStyles";
 import { dark } from "./styles/Themes";
 
 function App() {
-  
   const containerRef = useRef(null);
   const [Loaded, setLoaded] = useState(false);
 
@@ -41,9 +40,7 @@ function App() {
               smooth: true,
             },
           }}
-          watch={
-            []
-          }
+          watch={[]}
           containerRef={containerRef}
         >
           <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>

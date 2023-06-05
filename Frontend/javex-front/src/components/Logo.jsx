@@ -7,7 +7,7 @@ const Container = styled.div`
   position: absolute;
   top: 5rem;
   left: 1rem;
-  z-index: 6;
+  z-index: 100;
 
   width: 100%;
   width: fit-content;
@@ -16,6 +16,7 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     align-items: flex-end;
+    position: relative;
   }
 
   svg {
