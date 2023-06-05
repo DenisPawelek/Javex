@@ -71,8 +71,6 @@ public class ProductM {
 			"productType"
 	})
 	protected TypeM type;
-	
-	protected TypeM type;
 
 	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "product")
