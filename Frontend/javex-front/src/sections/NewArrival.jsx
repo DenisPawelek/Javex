@@ -160,7 +160,7 @@ const NewArrival = () => {
     let scrollingElement = ScrollingRef.current;
 
     tl.to(scrollingElement, {
-      y: "-65%",
+      y: -scrollingElement.scrollHeight + section.clientHeight,
       scrollTrigger: {
         id: "scroll",
         trigger: section,
