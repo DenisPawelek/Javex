@@ -34,7 +34,4 @@ public class SizeM {
 			"size"
 	})
 	protected List<ReserveM> reserves;
-	@ManyToMany
-	protected List<ProductM> products;
->>>>>>> Stashed changes
 }
