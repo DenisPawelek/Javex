@@ -1,5 +1,7 @@
 package pl.javex.MODELS;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,16 +15,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users")
+@Table(name = "usersssssa")
 @Getter
 @Setter
-public class UserM {
+public class UserM implements UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,13 +41,49 @@ public class UserM {
 	@Column(name = "pass_hash", columnDefinition = "varchar(255)", nullable = false)
 	protected String password;
 	@Column(name = "user_name", columnDefinition = "varchar(255)", nullable = false)
-	protected String userName;
+	protected String username;
 	@Column(name = "role", nullable = false)
-	protected Integer role;
+	protected String role;
 	@Column(name = "phone_number", nullable = false)
 	protected Integer phone;
+	
+	@Column(nullable = false) protected Short s_credentialsNonExpired;
+	@Column(nullable = false) protected Short s_accountNonExpired;
+	@Column(nullable = false) protected Short s_accountNonLocked;
+	@Column(nullable = false) protected Short s_enabled;
+	
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+//		return !accountNonExpired.equals(-1);
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+//		return !accountNonLocked.equals(-1);
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+//		return !credentialsNonExpired.equals(-1);
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+//		return !enabled.equals(-1);
+	}
+
 
 	
+	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Collections.singleton(new SimpleGrantedAuthority(role));
+	}
 	
 	@ManyToOne
 	@JoinColumn(name = "address_id", nullable = false)

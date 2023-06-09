@@ -24,7 +24,7 @@ public class REG_GenericServices extends GenericController{}
                                 
 @Service class  Date        extends  GenericService<DateM        > implements IUser {@Override public DateM         getField(){ return new DateM        (); } }
 @Service class  Email       extends  GenericService<EmailM       > implements IUser {@Override public EmailM        getField(){ return new EmailM       (); } }
-@Service class  User        extends  GenericService<UserM        > implements IUser {@Override public UserM         getField(){ return new UserM        (); } }
+@Service class  UserINFO    extends  GenericService<UserM        > implements IUser {@Override public UserM         getField(){ return new UserM        (); } }
 
 @Service class  Brand       extends  GenericService<BrandM       >{@Override public BrandM        getField(){ return new BrandM       (); } }
 @Service class  Category    extends  GenericService<CategoryM    >{@Override public CategoryM     getField(){ return new CategoryM    (); } }

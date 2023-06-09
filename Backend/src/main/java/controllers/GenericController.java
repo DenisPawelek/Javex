@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,10 +27,9 @@ import services.GenericService;
  * 
  * @param <T>
  */
-@CrossOrigin(value = "http://localhost:3000")
 @RestController("GenericController")
 @RequestMapping("/g")
-public class GenericController<T> extends MainController {
+public class GenericController<T> extends MainController<T> {
 	
 	@Autowired
 	protected List<GenericService> list = new ArrayList<GenericService>();

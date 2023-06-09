@@ -9,35 +9,24 @@ import org.springframework.stereotype.Service;
 
 @Service
 //public class MainService<E, JpaRepository<E, Long>>{
-	public class MainService<E>{
+	public class MainService<E extends Object>{
 //	public class MainService<E, R extends JpaRepository<E, Long>>{
 
 	@Autowired
 	private JpaRepository<E, Long> repo;
 	
-	public List<E> getAllItems()
-	{
+	private E f;
+
+	public E getField() {
+		return f;
+	}
+	
+	public List<E> getAllItems() {
 		return repo.findAll();
 	}
-	
-	public E AddItem(E Item)
-	{
-		return repo.save(Item);
-	}
-	
-	public void AddItems(List<E> Items)
-	{
-		repo.saveAll(Items);
-	}
-	
-	public void DeleteItem(E Item)
-	{
-		repo.delete(Item);
-	}
-	
-	public void DeleteItems(List<E> Items)
-	{
-		repo.deleteAll(Items);
+
+	public E getOneItem(Long id) {
+		return (E) repo.findById(id);
 	}
 
 	
