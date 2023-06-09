@@ -79,13 +79,11 @@ import NotFound from './pages/NotFound'
 const App = () => {
   return (
     <Router>
-      {/* <Layout> */}
         <Routes>
           <Route exact path="/" element={<HomepageLayout/>}/>
           <Route exact path="/kobieta" element={<Kobieta/>}/>
           <Route path="*" element={<NotFound/>}/> 
         </Routes>
-      {/* </Layout> */}
     </Router>
   );
 }
