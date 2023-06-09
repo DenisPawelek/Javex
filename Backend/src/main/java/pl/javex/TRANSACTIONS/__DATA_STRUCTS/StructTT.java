@@ -14,7 +14,7 @@ import pl.javex.MODELS.UserM;
 @Setter
 public class StructTT {
 
-	UserM user;
+//	UserM user;
 	StructTA addressStruct;
 	Date date;
 	DescriptionM desc;

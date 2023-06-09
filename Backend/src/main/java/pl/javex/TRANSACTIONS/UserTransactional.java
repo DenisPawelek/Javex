@@ -22,6 +22,9 @@ import pl.javex.TRANSACTIONS.__DATA_STRUCTS.StructTU;
 import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_EmailAlreadyTaken;
 import pl.javex.TRANSACTIONS.__ERROR_TYPES.E_UserNameTaken;
 
+import pl.javex.UTYLITIES.CODER;
+
+
 @Component
 public class UserTransactional {
 
@@ -38,9 +41,10 @@ public class UserTransactional {
 		
 		UserM user = new UserM();
 		
-		user.setUserName(userStruct.getUser().getUserName());
+		user.setUsername(userStruct.getUser().getUsername());
 		
 		Example<UserM> userExample = Example.of(user, ExampleMatcher.matchingAny());
+		
 		
 		if(r_user.exists(userExample)){throw new E_UserNameTaken("User of that name already exists", new Exception());}
 		
@@ -81,7 +85,8 @@ public class UserTransactional {
 		
 		
 		user.setUserAddress(at.addAddress(userStruct.getAddressStruct()));
-		
+		user.setPassword(CODER._GET_INSTANCE().getCoder().encode(user.getPassword()));
+		user.setRole("ROLE_USER");
 		r_user.save(user);
 
 		return ss;
