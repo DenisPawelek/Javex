@@ -12,20 +12,22 @@ const Logo = React.lazy(() => import('../components/Logo'));
 const Section = styled.section`
   position: relative;
   min-height: 100vh;
-overflow: hidden;
+  overflow: hidden;
 
 `;
 
-const Home = () => {
+const Header = () => {
   return (
-    <Section  id="home">
+    <>
+     {/* <Section  id="home"> */}
       <Suspense fallback={<></>}>
         <Logo />
         <Navbar />
-        <CoverVideo />
+        {/* <CoverVideo /> */}
       </Suspense>
-    </Section>
+     {/* </Section> */}
+    </>
   );
 };
 
-export default Home;
+export default Header;
