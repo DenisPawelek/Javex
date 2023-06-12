@@ -29,15 +29,25 @@ import pl.javex.MODELS.TransactionM;
 import pl.javex.MODELS.TypeM;
 import pl.javex.MODELS.UserM;
 
+import pl.javex.__CUSTOM_REPOS.SelectProductsBy_Repo;
+
 /**
  * Klasa służąca do rejestrowania interfejsów repozytoriów rozszerzających {@link JpaRepository}
  */
 public class REG_GenericcRepositories {}
 //########		REPOS
+interface RepoProduct     extends SelectProductsBy_Repo<ProductM      , Long>{}
+
+
+interface RepoBoots       extends SelectProductsBy_Repo<BootsM        , Long>{}
+interface RepoHoodie      extends SelectProductsBy_Repo<HoodieM       , Long>{}
+interface RepoJacket      extends SelectProductsBy_Repo<JacketM       , Long>{}
+interface RepoPants       extends SelectProductsBy_Repo<PantsM        , Long>{}
+interface RepoShirt       extends SelectProductsBy_Repo<ShirtM        , Long>{}
+interface RepoSweater     extends SelectProductsBy_Repo<SweaterM      , Long>{}
 
 
 interface RepoAddress     extends JpaRepository<AddressM      , Long>{}
-interface RepoBoots       extends JpaRepository<BootsM        , Long>{}
 interface RepoBrand       extends JpaRepository<BrandM        , Long>{}
 interface RepoCategory    extends JpaRepository<CategoryM     , Long>{}
 interface RepoCity        extends JpaRepository<CityM         , Long>{}
@@ -45,18 +55,12 @@ interface RepoColor       extends JpaRepository<ColorM        , Long>{}
 interface RepoDate        extends JpaRepository<DateM         , Long>{}
 interface RepoDescription extends JpaRepository<DescriptionM  , Long>{}
 interface RepoEmail       extends JpaRepository<EmailM        , Long>{}
-interface RepoHoodie      extends JpaRepository<HoodieM       , Long>{}
-interface RepoJacket      extends JpaRepository<JacketM       , Long>{}
 interface RepoMaterial    extends JpaRepository<MaterialM     , Long>{}
-interface RepoPants       extends JpaRepository<PantsM        , Long>{}
 interface RepoPostalCode  extends JpaRepository<PostalCodeM   , Long>{}
-interface RepoProduct     extends JpaRepository<ProductM      , Long>{}
 interface RepoProductType extends JpaRepository<ProductTypeM  , Long>{}
 interface RepoReserve     extends JpaRepository<ReserveM      , Long>{}
 interface RepoSex         extends JpaRepository<SexM          , Long>{}
-interface RepoShirt       extends JpaRepository<ShirtM        , Long>{}
 interface RepoSize        extends JpaRepository<SizeM         , Long>{}
-interface RepoSweater     extends JpaRepository<SweaterM      , Long>{}
 interface RepoType        extends JpaRepository<TypeM         , Long>{}
 interface RepoUser        extends JpaRepository<UserM         , Long>{}
 interface RepoTransaction extends JpaRepository<TransactionM  , Long>{}
