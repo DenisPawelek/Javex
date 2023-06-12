@@ -138,12 +138,12 @@ const Footer = () => {
         </h3>
       </LogoContainer>
       <FooterComponent
-        initial={{ y: "-400px" }}
+        // initial={{ y: "-400px" }}
         whileInView={{ y: 0 }}
         viewport={{ once: false }}
-        transition={{
-          duration: 1.5,
-        }}
+        // transition={{
+        //   duration: 1.5,
+        // }}
       >
         <ul>
           <li aria-hidden="true" onClick={() => handleScroll("#home")}>
