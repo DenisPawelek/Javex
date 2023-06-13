@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "rsa",
+      "type": "pl.javex.RsaKeyProp",
+      "sourceType": "pl.javex.RsaKeyProp"
+    }
+  ],
+  "properties": [
+    {
+      "name": "rsa.private-key",
+      "type": "java.security.interfaces.RSAPrivateKey",
+      "sourceType": "pl.javex.RsaKeyProp"
+    },
+    {
+      "name": "rsa.public-key",
+      "type": "java.security.interfaces.RSAPublicKey",
+      "sourceType": "pl.javex.RsaKeyProp"
+    }
+  ],
+  "hints": []
+}
