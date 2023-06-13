@@ -37,13 +37,13 @@ public class TransactionTransactional {
 	@Autowired AddressTransactional at;
 	
 	@Transactional
-	public List<String> tryRegisterTransaction(StructTT transactionStruct) throws SQLException{
+	public List<String> tryRegisterTransaction(UserM user, StructTT transactionStruct) throws SQLException{
 		
 		List<String> ss = new ArrayList<String>();
 		
-		Optional<UserM> user = r_user.findById(transactionStruct.getUser().getId());
-		
-		if(user.isEmpty()) { throw new E_NoSuchUser("User undefined", new Exception());}
+//		Optional<UserM> user = r_user.findById(transactionStruct.getUser().getId());
+//		
+//		if(user.isEmpty()) { throw new E_NoSuchUser("User undefined", new Exception());}
 		for(OrderM order : transactionStruct.getOrders()) {
 			
 			Optional<ReserveM> reserve = r_reserve.findById(order.getReserve().getId());
@@ -61,23 +61,30 @@ public class TransactionTransactional {
 		Optional<DateM> d = r_date.findOne(Example.of(date));
 		if(d.isEmpty()) date = r_date.save(date);
 		else date = d.get();
-		
+//		
 		DescriptionM desc = r_description.save(transactionStruct.getDesc());
-		
+//		
 		TransactionM transaction = new TransactionM();
 		transaction.setAddress(address);
 		transaction.setDate(date);
 		transaction.setDescription(desc);
-		transaction.setUser(user.get());
+		transaction.setUser(user);
+//		
+		
+		ss.add(transaction.getAddress().toString());
+		ss.add(transaction.getDate().toString());
+		ss.add(transaction.getDescription().toString());
+		ss.add(transaction.getUser().toString());
+		
 		
 		transaction = r_transaction.save(transaction);
-		
-		for(OrderM order : transactionStruct.getOrders()) {
-			order.setTransaction(transaction);
-			r_order.save(order);
-		}
-		
-		
+//		
+//		for(OrderM order : transactionStruct.getOrders()) {
+//			order.setTransaction(transaction);
+//			r_order.save(order);
+//		}
+//		
+//		
 		return ss;
 		
 	}
