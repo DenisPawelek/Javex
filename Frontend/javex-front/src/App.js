@@ -18,25 +18,26 @@ import ProductsView from "./pages/ProductsView";
 import Header from "./sections/Header";
 //import Header from "./newComponents/Header";
 //import Footer from "./newComponents/Footer";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import ShippingScreen from "./screens/ShippingScreen";
-import PaymentScreen from "./screens/PaymentScreen";
-import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import OrderScreen from "./screens/OrderScreen";
-import UserListScreen from "./screens/UserListScreen";
-import UserEditScreen from "./screens/UserEditScreen";
-import ProductListScreen from "./screens/ProductListScreen";
-import CreateProductScreen from "./screens/CreateProductScreen";
-import EditProductScreen from "./screens/EditProductScreen";
-import OrderListScreen from "./screens/OrderListScreen";
-import HomeScreen from "./screens/HomeScreen";
-import ProtectedRoute from "./newComponents/ProtectedRoute";
-import OnlyAdmin from "./newComponents/OnlyAdmin";
-import CartScreen from "./screens/CartScreen";
-import ProductScreen from "./screens/ProductScreen";
+// import LoginScreen from "./screens/LoginScreen";
+// import RegisterScreen from "./screens/RegisterScreen";
+// import ProfileScreen from "./screens/ProfileScreen";
+// import ShippingScreen from "./screens/ShippingScreen";
+// import PaymentScreen from "./screens/PaymentScreen";
+// import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+// import OrderScreen from "./screens/OrderScreen";
+// import UserListScreen from "./screens/UserListScreen";
+// import UserEditScreen from "./screens/UserEditScreen";
+// import ProductListScreen from "./screens/ProductListScreen";
+// import CreateProductScreen from "./screens/CreateProductScreen";
+// import EditProductScreen from "./screens/EditProductScreen";
+// import OrderListScreen from "./screens/OrderListScreen";
+// import HomeScreen from "./screens/HomeScreen";
+// import ProtectedRoute from "./newComponents/ProtectedRoute";
+// import OnlyAdmin from "./newComponents/OnlyAdmin";
+// import CartScreen from "./screens/CartScreen";
+// import ProductScreen from "./screens/ProductScreen";
 import Product from "./components/Product";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   const containerRef = useRef(null);
@@ -78,14 +79,14 @@ function App() {
                 {/* <Route index path="/" element={<HomeScreen />} /> */}
 
                 <Route path="/man" element={<ProductsView />} />
-                <Route path="/woman" element={<ProductsView />} />
+                <Route path="/woman" element={<ProductsPage />} />
                 <Route path="/boy" element={<ProductsView />} />
                 <Route path="/girl" element={<Product />} />
                 <Route path="/new" element={<ProductsView />} />
                 <Route path="/sale" element={<Product />} />
 
                 {/* <Route path="/product:id" element={<ProductsView />} /> */}
-                <Route path="/product/:id" element={<ProductScreen />} />
+                {/* <Route path="/product/:id" element={<ProductScreen />} />
                 <Route path="/cart" element={<CartScreen />} />
 
                 <Route path="/login" element={<LoginScreen />} />
@@ -146,7 +147,7 @@ function App() {
                   path="/search/:keyword/page/:pageNumber"
                   element={<HomeScreen />}
                 />
-                <Route path="/search/:keyword" element={<HomeScreen />} />
+                <Route path="/search/:keyword" element={<HomeScreen />} /> */}
 
                 <Route path="/*" element={<Error />} />
               </Routes>

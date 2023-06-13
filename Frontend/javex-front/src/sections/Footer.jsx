@@ -4,6 +4,7 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 import styled from "styled-components";
 
 import Logo from "../assets/Svgs/star_white_48dp.svg";
+import AxiosTest from "../hooks/AxiosTest";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -179,6 +180,7 @@ const Footer = () => {
           </span>
         </Bottom>
       </FooterComponent>
+      {/* <AxiosTest /> */}
     </Section>
   );
 };

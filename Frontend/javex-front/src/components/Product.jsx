@@ -3,7 +3,7 @@ import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import products from "../test/products";
 import img1 from "../assets/Images/14.webp";
-import { color } from "framer-motion";
+import { useAxios } from "../hooks/useAxios";
 
 //#region Styled Components
 const ProductPage = styled.div`
@@ -101,15 +101,14 @@ const FilterTitle = styled.span`
 
 const FilterColor = styled.input`
   width: 20px;
-  height: 20px; 
+  height: 20px;
   type: radio;
   border-radius: 50%;
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;
-  outline: ${(props) => props.checked ? '2px solid teal' : 'none'} ;
+  outline: ${(props) => (props.checked ? "2px solid teal" : "none")};
 `;
-
 
 const FilterSize = styled.select`
   margin-left: 5px;
@@ -120,7 +119,15 @@ const FilterSizeOption = styled.option``;
 //#endregion
 
 const Product = (props) => {
-  const product = products.find(({ _id }) => _id === "3");
+  //const product = products.find(({ _id }) => _id === "3");
+  const { response, loading, error } = useAxios({
+    method: "GET",
+    url: "/g/many/Product",
+    headers: {
+      accept: "*/*",
+    },
+    data: {},
+  });
 
   const [amount, setAmount] = useState(1);
   const [selected, setSelected] = useState("black");
@@ -141,46 +148,80 @@ const Product = (props) => {
     console.log("Added to cart");
   };
 
-  useEffect(() => {
-    console.log(product);
-  }, [product]);
-
   return (
     <ProductPage>
-      <ImageContainer>
-        <ProductImage src={img1} />
-      </ImageContainer>
-      <InfoContainer>
-        <ProductTitle>{product.name}</ProductTitle>
-        <ProductDescription>{product.description}</ProductDescription>
-        <ProductPrice>{product.price} PLN</ProductPrice>
-        <FilterContainer>
-          <Filter>
-            <FilterTitle>Color</FilterTitle>
-            <FilterColor  color="black" checked={selected === "black"} onClick={handleColorChange}/>
-            <FilterColor  color="darkblue" checked={selected === "darkblue"} onClick={handleColorChange}/>
-            <FilterColor  color="gray" checked={selected === "gray"} onClick={handleColorChange}/>
-          </Filter>
-          <Filter>
-            <FilterTitle>Size</FilterTitle>
-            <FilterSize>
-              <FilterSizeOption>XS</FilterSizeOption>
-              <FilterSizeOption>S</FilterSizeOption>
-              <FilterSizeOption>M</FilterSizeOption>
-              <FilterSizeOption>L</FilterSizeOption>
-              <FilterSizeOption>XL</FilterSizeOption>
-            </FilterSize>
-          </Filter>
-        </FilterContainer>
-        <AddContainer>
-          <AmountContainer>
-            <Remove onClick={AmountDown} style={{ cursor: "pointer" }} />
-            <Amount>{amount}</Amount>
-            <Add onClick={AmountUp} style={{ cursor: "pointer" }} />
-          </AmountContainer>
-          <Button onClick={handleAddToCart}>ADD TO CART</Button>
-        </AddContainer>
-      </InfoContainer>
+      {loading ? (
+        <p>loading...</p>
+      ) : (
+        <>
+          {error && (
+            <div>
+              <p>{error.message}</p>
+            </div>
+          )}
+          <>
+            {" "}
+            {
+              // no need to use another state to store data, response is sufficient
+              response && (
+                <>
+                  <ImageContainer>
+                    <ProductImage src={img1} />
+                  </ImageContainer>
+                  <InfoContainer>
+                    <ProductTitle>{product.name}</ProductTitle>
+                    <ProductDescription>
+                      {product.description}
+                    </ProductDescription>
+                    <ProductPrice>{product.price} PLN</ProductPrice>
+                    <FilterContainer>
+                      <Filter>
+                        <FilterTitle>Color</FilterTitle>
+                        <FilterColor
+                          color="black"
+                          checked={selected === "black"}
+                          onClick={handleColorChange}
+                        />
+                        <FilterColor
+                          color="darkblue"
+                          checked={selected === "darkblue"}
+                          onClick={handleColorChange}
+                        />
+                        <FilterColor
+                          color="gray"
+                          checked={selected === "gray"}
+                          onClick={handleColorChange}
+                        />
+                      </Filter>
+                      <Filter>
+                        <FilterTitle>Size</FilterTitle>
+                        <FilterSize>
+                          <FilterSizeOption>XS</FilterSizeOption>
+                          <FilterSizeOption>S</FilterSizeOption>
+                          <FilterSizeOption>M</FilterSizeOption>
+                          <FilterSizeOption>L</FilterSizeOption>
+                          <FilterSizeOption>XL</FilterSizeOption>
+                        </FilterSize>
+                      </Filter>
+                    </FilterContainer>
+                    <AddContainer>
+                      <AmountContainer>
+                        <Remove
+                          onClick={AmountDown}
+                          style={{ cursor: "pointer" }}
+                        />
+                        <Amount>{amount}</Amount>
+                        <Add onClick={AmountUp} style={{ cursor: "pointer" }} />
+                      </AmountContainer>
+                      <Button onClick={handleAddToCart}>ADD TO CART</Button>
+                    </AddContainer>
+                  </InfoContainer>
+                </>
+              )
+            }
+          </>
+        </>
+      )}
     </ProductPage>
   );
 };
