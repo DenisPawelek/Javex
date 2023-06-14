@@ -1,10 +1,12 @@
 import styled from "styled-components";
-// import Navbar from "../components/Navbar";
+ import Navbar from "../components/Navbar";
 // import Announcement from "../components/Announcement";
 import ProductsList from "../components/ProductsList";
+import Slider from "../components/Slider";
 // import Newsletter from "../components/Newsletter";
 // import Footer from "../components/Footer";
 // import { mobile } from "../responsive";
+import SubpageNavbarFit from "../components/SubpageNavbarFit"
 
 const Container = styled.div``;
 
@@ -37,6 +39,8 @@ const ProductsPage = () => {
   return (
     <Container>
       {/* <Navbar /> */}
+      <SubpageNavbarFit />
+      <Slider /> 
       {/* <Announcement /> */}
       <Title>Woman</Title>
       <FilterContainer>

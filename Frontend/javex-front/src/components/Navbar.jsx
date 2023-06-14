@@ -4,6 +4,17 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GoogleIcon from "@mui/icons-material/Google";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import SearchIcon from '@mui/icons-material/Search';
+
+import Logo from "./Logo";
+
+import "./NavbarSearchBox.css"
+
 const NavContainer = styled(motion.div)`
   position: fixed;
   top: ${(props) => (props.click ? "0" : `-${props.theme.navHeight}`)};
@@ -115,14 +126,31 @@ const Navbar = () => {
         <MenuBtn onClick={() => setClick(!click)}>
           <span>MENU</span>
         </MenuBtn>
-        <Item
+
+        <Item>
+        <Logo />
+        </Item>
+
+        <Item>
+        {/* <SearchIcon/> */}
+        <div className="search__box">
+          <input type="text" placeholder="Wyszukaj albo wpisz tutaj..." />
+          <span className="SearchIcon">
+            <SearchIcon />
+          </span>
+        </div>
+        </Item>
+
+        {/* <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
           onClick={() => handleScroll("#home")}
         >
           {" "}
           <Link to="/">Home</Link>
-        </Item>
+
+        </Item> */}
+
         <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
@@ -130,6 +158,7 @@ const Navbar = () => {
         >
           <Link to="/">about</Link>
         </Item>
+
         <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
@@ -180,6 +209,47 @@ const Navbar = () => {
           {" "}
           <Link to="/boy">chłopiec</Link>
         </Item>
+
+        <Item
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.9, y: 0 }}
+        >
+          {" "}
+          <FacebookIcon />
+        </Item>
+
+        <Item
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.9, y: 0 }}
+        >
+          {" "}
+          <InstagramIcon />
+        </Item>
+
+        <Item
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.9, y: 0 }}
+        >
+          {" "}
+          <TwitterIcon />
+        </Item>
+
+        <Item
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.9, y: 0 }}
+        >
+          {" "}
+          <GoogleIcon />
+        </Item>
+
+        <Item
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.9, y: 0 }}
+        >
+          {" "}
+          <PinterestIcon />
+        </Item>
+
       </MenuItems>
     </NavContainer>
   );
