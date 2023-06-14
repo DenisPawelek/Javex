@@ -15,10 +15,13 @@ const ProductsList = () => {
   const { response, loading, error } = useAxios({
     method: "GET",
     url: "/g/many/Product",
+    auth: {
+      username: "testUser",
+      password: "pasword123",
+    },
     headers: {
       accept: "*/*",
     },
-    data: {},
   });
 
   return (

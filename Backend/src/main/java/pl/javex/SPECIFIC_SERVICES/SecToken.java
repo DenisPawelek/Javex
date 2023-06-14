@@ -36,7 +36,7 @@ public class SecToken {
 		JwtClaimsSet claims = JwtClaimsSet.builder()
 				.issuer("self")
 				.issuedAt(now)
-				.expiresAt(now.plus(10, ChronoUnit.MINUTES))
+				.expiresAt(now.plus(1000, ChronoUnit.MINUTES))
 				.subject(auth.getName())
 				.claim("scope", scope)
 				.build()

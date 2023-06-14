@@ -18,7 +18,7 @@ const Info = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 3;
   display: flex;
-  flex:1;
+  flex: 1;
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
