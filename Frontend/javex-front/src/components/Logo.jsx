@@ -5,9 +5,9 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: absolute;
-  top: 5rem;
+  // bottom: 6.5rem;
   left: 1rem;
-  z-index: 6;
+  z-index: 100;
 
   width: 100%;
   width: fit-content;
@@ -16,11 +16,12 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     align-items: flex-end;
+    position: relative;
+    bottom: 25px;
   }
 
   svg {
-    width: 4rem;
-
+    width: 3rem;
     height: auto;
     overflow: visible;
     stroke-linejoin: round;
@@ -36,6 +37,7 @@ const Text = styled(motion.span)`
   font-size: ${(props) => props.theme.fontlg};
   color: ${(props) => props.theme.text};
   padding-bottom: 0.5rem;
+  margin-left: 10px;
 `;
 
 const pathVariants = {
@@ -52,7 +54,7 @@ const pathVariants = {
       delay: 3, // 0
       ease: 'easeInOut',
     },
-  },
+  }
 };
 const textVariants = {
   hidden: {
@@ -73,7 +75,7 @@ const textVariants = {
 
 const Logo = () => {
   return (
-    <Container>
+    <Container >
       <Link to="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +86,8 @@ const Logo = () => {
           fill="none"
         >
           <g>
-            <motion.path
+            <motion.path whileHover={{ scale: 1.1, y: -1 }}
+         
               variants={pathVariants}
               initial="hidden"
               animate="visible"
