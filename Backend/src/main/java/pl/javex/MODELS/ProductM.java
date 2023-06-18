@@ -38,6 +38,8 @@ public class ProductM {
 	protected Long price;	
 	@Column(name = "name", nullable = false)
 	protected String name;	
+	@Column(name = "imgURL", nullable = false)
+	protected String img;	
 	@OneToOne
 	@JoinColumn(name = "desc_id", nullable = false)
 	protected DescriptionM description;
