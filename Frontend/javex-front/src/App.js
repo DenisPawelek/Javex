@@ -39,6 +39,9 @@ import Header from "./sections/Header";
 import Product from "./components/Product";
 import ProductsPage from "./pages/ProductsPage";
 
+import SignInForm from "./pages/SignInForm";
+import SignUpForm from "./pages/SignUpForm";
+
 function App() {
   const containerRef = useRef(null);
   const [Loaded, setLoaded] = useState(false);
@@ -84,6 +87,9 @@ function App() {
                 <Route path="/girl" element={<Product />} />
                 <Route path="/new" element={<ProductsView />} />
                 <Route path="/sale" element={<Product />} />
+
+                <Route path="/login" element={<SignInForm/>} />
+                <Route path="/register" element={<SignUpForm />} />
 
                 {/* <Route path="/product:id" element={<ProductsView />} /> */}
                 {/* <Route path="/product/:id" element={<ProductScreen />} />

@@ -238,18 +238,15 @@ const Navbar = () => {
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
         >
-          {" "}
-          <GoogleIcon />
+          <Link to="/login">login</Link>
         </Item>
 
         <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
         >
-          {" "}
-          <PinterestIcon />
+          <Link to="/register">register</Link>
         </Item>
-
       </MenuItems>
     </NavContainer>
   );
