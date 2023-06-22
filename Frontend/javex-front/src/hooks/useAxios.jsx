@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:8008";
@@ -9,14 +9,16 @@ axios.defaults.baseURL = "http://localhost:8008";
   - don't use export defaults, because default imports are hard to search for
   - axios already support generic request in one parameter, no need to call specialized ones
 **/
-export const useAxios = (axiosParams) => {
-  const [response, setResponse] = useState(undefined);
-  const [error, setError] = useState("");
+export const useAxios = () => {
+  const [response, setResponse] = useState();
+  const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
 
-  const fetchData = async (params) => {
+ async function fetchData (params) {
+    console.log("fetchData...");
+    console.log(params);
     try {
-      const result = await axios.request(params);
+      let result = await axios.request(params);
       setResponse(result.data);
     } catch (error) {
       setError(error);
@@ -25,9 +27,32 @@ export const useAxios = (axiosParams) => {
     }
   };
 
-  useEffect(() => {
-    fetchData(axiosParams);
-  }, []); // execute once only
+  // useEffect(() => {
+  //   console.log("axiosParams...");
+  //   console.log(axiosParams);
+  //   fetchData(axiosParams);
+  // }, []); // execute when axiosParams changes
 
-  return { response, error, loading };
+  // useEffect(() => {
+  //   console.log("axiosParams...");
+  //   console.log(axiosParams);
+  //   //fetchData(axiosParams);
+  // }, []); // execute once only
+
+  // useEffect(() => {
+  //   console.log(error);
+  // }, [error]); // execute when error changes
+
+  // useEffect(() => {
+  //   console.log(data);
+  //   console.log(data);
+  // }, [data]); // execute when response changes
+
+  // const PutAxios = (productList) =>
+  // {
+  //  console.log("PutAxios..." );
+  //  console.log(productList);
+  // };
+
+  return { fetchData, response, error, loading };
 };

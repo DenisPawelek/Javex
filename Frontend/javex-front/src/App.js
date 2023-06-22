@@ -16,6 +16,7 @@ import Error from "./pages/Error";
 import HomePage from "./pages/HomePage";
 import ProductsView from "./pages/ProductsView";
 import Header from "./sections/Header";
+import AdminProductsListManager from "./pages/AdminProductsListManager";
 //import Header from "./newComponents/Header";
 //import Footer from "./newComponents/Footer";
 // import LoginScreen from "./screens/LoginScreen";
@@ -78,7 +79,7 @@ function App() {
                 <Route index path="/" element={<HomePage />} />
                 {/* <Route index path="/" element={<HomeScreen />} /> */}
 
-                <Route path="/man" element={<ProductsView />} />
+                <Route path="/man" element={<AdminProductsListManager />} />
                 <Route path="/woman" element={<ProductsPage />} />
                 <Route path="/boy" element={<ProductsView />} />
                 <Route path="/girl" element={<Product />} />

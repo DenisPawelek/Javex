@@ -17,7 +17,7 @@ import lombok.Setter;
 import lombok.AccessLevel;
 
 @Entity
-@Table(name = "sex")
+@Table(name = "sexes")
 @Getter
 @Setter
 public class SexM {

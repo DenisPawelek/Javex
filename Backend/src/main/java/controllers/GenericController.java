@@ -29,7 +29,7 @@ import services.GenericService;
  * 
  * @param <T>
  */
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = {"Requestor-Type", "Authorization"}, exposedHeaders = "X-Get-Header")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = {"Requestor-Type", "Origin", "X-Api-Key", "X-Requested-With", "Content-Type", "Accept", "Authorization"}, exposedHeaders = "X-Get-Header", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 @RestController("GenericController")
 @RequestMapping("/g")
 public class GenericController<T> extends MainController<T> {
@@ -164,7 +164,8 @@ public class GenericController<T> extends MainController<T> {
 				ObjectMapper jacksonMapper = new ObjectMapper();
 				l = list.get(i).ModifyItem(id, jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
 //				l = new ArrayList<Object>();
-				l.add("MODIFIED SINGLE ITEM");
+//				l.add("MODIFIED SINGLE ITEM");
+				l.add(jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
 				return l;
 			}
 		}

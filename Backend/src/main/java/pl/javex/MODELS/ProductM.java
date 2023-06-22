@@ -24,7 +24,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "productsuss")
+@Table(name = "products")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
@@ -34,13 +34,17 @@ public class ProductM {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "url", nullable = true)
+	protected String img_url;
+	
 	@Column(name = "price", nullable = false)
 	protected Long price;	
 	@Column(name = "name", nullable = false)
 	protected String name;	
-	@OneToOne
-	@JoinColumn(name = "desc_id", nullable = false)
-	protected DescriptionM description;
+	
+	@Column(name = "description", nullable = true)
+	protected String description;
+	
 	@ManyToOne
 	@JoinColumn(name = "material_id", nullable = false)
 	@JsonIgnoreProperties(value={

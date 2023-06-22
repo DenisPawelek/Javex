@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   // bottom: 6.5rem;
-  left: 1rem;
+  top: 2rem;
+  left: 2rem;
   z-index: 100;
 
   width: 100%;
@@ -97,7 +98,7 @@ const Logo = () => {
         </svg>
 
         <Text variants={textVariants} initial="hidden" animate="visible">
-          Javex
+          JAVEX
         </Text>
       </Link>
     </Container>

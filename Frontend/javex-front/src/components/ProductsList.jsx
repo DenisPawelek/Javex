@@ -3,6 +3,7 @@ import styled from "styled-components";
 import products from "../test/products";
 import ProductPreview from "./ProductPreview";
 import { useAxios } from "../hooks/useAxios";
+import { useEffect } from "react";
 
 const Container = styled.div`
   padding: 5px;
@@ -12,17 +13,22 @@ const Container = styled.div`
 `;
 
 const ProductsList = () => {
-  const { response, loading, error } = useAxios({
-    method: "GET",
-    url: "/g/many/Product",
-    auth: {
-      username: "testUser",
-      password: "pasword123",
-    },
-    headers: {
-      accept: "*/*",
-    },
-  });
+  const { fetchData, response, loading, error } = useAxios();
+
+  useEffect (() => {
+    fetchData({
+      method: "GET",
+      url: "/g/many/Product",
+      auth: {
+        username: "testUser",
+        password: "pasword123",
+      },
+      headers: {
+        accept: "*/*",
+      },
+    });
+  }, []);
+
 
   return (
     <Container>

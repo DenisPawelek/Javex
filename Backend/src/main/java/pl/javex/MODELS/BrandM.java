@@ -38,10 +38,14 @@ public class BrandM {
 	@Column(name = "brand_name", columnDefinition = "varchar(100)", nullable = false)
 	protected String name;
 	
-	@OneToOne
-	@JoinColumn(name = "desc_id")
-	protected DescriptionM description;
+//	@OneToOne
+//	@JoinColumn(name = "desc_id")
+//	protected DescriptionM description;
 
+	
+	@Column(name = "description", nullable = true)
+	protected String description;
+	
 	@Column(name = "logo_url", columnDefinition = "varchar(255)", nullable = true)
 	protected String logoUrl;
 }

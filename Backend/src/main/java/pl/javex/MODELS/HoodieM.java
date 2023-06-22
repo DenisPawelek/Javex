@@ -17,4 +17,6 @@ public class HoodieM extends ProductM {
 	protected Boolean hasHood;
 	@Column(name = "zip", columnDefinition = "boolean default false", nullable = false)
 	protected Boolean hasZip;
+	@Column(name = "type_name", nullable = true, columnDefinition="varchar(20) default 'Hoodie'")
+	protected String typeName = "Hoodie";
 }

@@ -33,13 +33,13 @@ const NavContainer = styled(motion.div)`
 `;
 
 const MenuBtn = styled.li`
-  background-color: ${(props) => `rgba(${props.theme.textRgba},0.7)`};
+  background-color: ${(props) => `rgba(${props.theme.textRgba},0.8)`};
   color: ${(props) => props.theme.body};
   width: 15rem;
   height: 2.5rem;
 
   border: none;
-  outline: none;
+  outline: none; 
 
   clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
 

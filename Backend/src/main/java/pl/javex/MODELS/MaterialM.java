@@ -30,9 +30,12 @@ public class MaterialM {
 	@Column(name = "material_name", columnDefinition = "varchar(31)", nullable = false)
 	protected String name;
 
-	@OneToOne
-	@JoinColumn(name = "desc_id", nullable = true)
-	protected DescriptionM description;
+//	@OneToOne
+//	@JoinColumn(name = "desc_id", nullable = true)
+//	protected DescriptionM description;
+	
+	@Column(name = "description", nullable = true)
+	protected String description;
 
 	@Getter(AccessLevel.PRIVATE)
 	@OneToMany(mappedBy = "material")

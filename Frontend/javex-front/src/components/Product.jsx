@@ -140,19 +140,23 @@ const Product = (props) => {
   const token =
     "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdFVzZXIiLCJleHAiOjE2ODY3OTUxMzQsImlhdCI6MTY4NjczNTEzNCwic2NvcGUiOiJST0xFX0FETUlOIn0.Wyr_9x9VsYD857SctBq46dAEWz8No-w3hRxS_yIsxY_DSUVVWIeMWEX0zEbYWiz-oLEWuvk95vq_HbfdkEpxRssjIV495nhLrrLYofioZhQ-xWybCvDTc8rJEAkmjIw5bvnQ66DaSOxnuDIh3k33g6Kg6H7rLY5MS-BooqAAP9b27wEE0O-HS242Nai9KJFt-t_CPGgtR2STUAViPyQFoK7fJ7qDUH3hqi3FinjPzqw7tqLD9dETHud_16a3RkQ5aivos4sqGUZXqY8HST8ar80WHOAAQL-2Gx_XAQYBgXs3GtHwOxGtGE35O4z99VFre_dSMrDaxhTKEwsboapgDQ";
 
-  const { response, loading, error } = useAxios({
-    method: "GET",
-    url: "/g/single/Product",
-    params: { id: props.id ? props.id : 99 }, //potem usunąć ifa
-    auth: {
-      username: "testUser",
-      password: "pasword123",
-    }, //zabezpieczyć
-    headers: {
-      accept: "*/*",
-      // authorization: `Bearer ${token}`,
-    },
-  });
+  const { fetchData, response, loading, error } = useAxios();
+
+  useEffect(() => {
+    fetchData({
+      method: "GET",
+      url: "/g/single/Product",
+      params: { id: props.id ? props.id : 51 }, //potem usunąć ifa
+      auth: {
+        username: "testUser",
+        password: "pasword123",
+      }, //zabezpieczyć
+      headers: {
+        accept: "*/*",
+        // authorization: `Bearer ${token}`,
+      },
+    });
+  }, []);
 
   useEffect(() => {
     response &&
@@ -167,45 +171,50 @@ const Product = (props) => {
               size: item?.size,
             });
 
-            let uniqueSizes = [
-              ...new Map(
-                resJson?.reserves?.map((item) => [item.size["key"], item.size])
-              ).values(),
-            ];
-            //testowo
-            uniqueSizes.push(
-              { id: 2, name: "S" },
-              { id: 3, name: "M" },
-              { id: 5, name: "XL" }
-            );
-            let ORDER = ["XS", "S", "M", "L", "XL", "XXL"];
-            uniqueSizes.sort(
-              (a, b) => ORDER.indexOf(a.name) - ORDER.indexOf(b.name)
-            );
-
-            setSizes(uniqueSizes);
-
-            let uniqueColors = [
-              ...new Map(
-                resJson?.reserves?.map((item) => [
-                  item.color["key"],
-                  item.color,
-                ])
-              ).values(),
-            ];
-            //testowo
-            uniqueColors.push(
-              { id: 2, name: "red" },
-              { id: 3, name: "blue" },
-              { id: 5, name: "green" }
-            );
-            //console.log(uniqueColors);
-            setColors(uniqueColors);
-
             return setReservesJson(resJson);
           });
       })();
   }, [response, product]);
+
+  useEffect(() => {
+    console.log("reservesJson");
+    console.log(reservesJson);
+    // let uniqueSizes = [
+    //   ...new Map(
+    //     reservesJson?.reserves?.map((item) => [item.size["key"], item.size])
+    //   ).values(),
+    // ];
+
+    // console.log(uniqueSizes);
+    //testowo
+    // uniqueSizes.push(
+    //   { id: 2, name: "S" },
+    //   { id: 3, name: "M" },
+    //   { id: 5, name: "XL" }
+    // );
+
+    let uniqueSizes = reservesJson?.reserves?.map((item) => item.size);
+    let ORDER = ["XS", "S", "M", "L", "XL", "XXL"];
+    uniqueSizes.sort((a, b) => ORDER.indexOf(a.name) - ORDER.indexOf(b.name));
+    console.log(uniqueSizes);
+    setSizes(uniqueSizes);
+
+    setColors(reservesJson?.reserves?.map((item) => item.color));
+
+    // let uniqueColors = [
+    //   ...new Map(
+    //     reservesJson?.reserves?.map((item) => [item.color["key"], item.color])
+    //   ).values(),
+    // ];
+    // //testowo
+    // uniqueColors.push(
+    //   { id: 2, name: "red" },
+    //   { id: 3, name: "blue" },
+    //   { id: 5, name: "green" }
+    // );
+    // console.log(uniqueColors);
+    // setColors(uniqueColors);
+  }, [reservesJson]);
 
   const handleColorChange = (e) => {
     setSelectedColor(e.target.id);
@@ -238,7 +247,7 @@ const Product = (props) => {
                   <InfoContainer>
                     <ProductTitle>{product && product?.name}</ProductTitle>
                     <ProductDescription>
-                      {product && product?.description?.value}
+                      {product && product?.description}
                     </ProductDescription>
                     <ProductPrice>{product && product?.price} PLN</ProductPrice>
                     <FilterContainer>
@@ -251,9 +260,7 @@ const Product = (props) => {
                               <FilterColor
                                 key={item.id}
                                 id={item.id}
-                                color={
-                                  item.name === "Czarny" ? "black" : item.name
-                                }
+                                color={item.name}
                                 checked={selectedColor == item.id}
                                 onChange={() => true}
                                 onClick={handleColorChange}

@@ -1,6 +1,5 @@
 pl\javex\TRANSACTIONS\__ERROR_TYPES\E_NoSuchProductReserve.class
 pl\javex\TRANSACTIONS\__INTERFACES\IAddress.class
-pl\javex\UTYLITIES\Description.class
 pl\javex\UTYLITIES\RepoEmail.class
 pl\javex\UTYLITIES\Sweater.class
 pl\javex\MODELS\CityM.class
@@ -72,9 +71,7 @@ pl\javex\SPECIFIC_SERVICES\SecToken.class
 pl\javex\TRANSACTIONS\TransactionTransactional.class
 pl\javex\MODELS\ProductM.class
 pl\javex\UTYLITIES\RepoShirt.class
-pl\javex\MODELS\DescriptionM.class
 pl\javex\UTYLITIES\AccesPants.class
-pl\javex\UTYLITIES\RepoDescription.class
 pl\javex\TRANSACTIONS\__DATA_STRUCTS\StructTA.class
 pl\javex\MODELS\InvoiceM.class
 pl\javex\UTYLITIES\PostalCode.class
@@ -118,7 +115,6 @@ pl\javex\TRANSACTIONS\__DATA_STRUCTS\StructTP.class
 pl\javex\TRANSACTIONS\__ERROR_TYPES\E_OrderAmountTooLarge.class
 pl\javex\TRANSACTIONS\__INTERFACES\IUser.class
 pl\javex\UTYLITIES\RepoHoodie.class
-pl\javex\UTYLITIES\AccesDescription.class
 pl\javex\MODELS\ColorM.class
 pl\javex\UTYLITIES\RepoMaterial.class
 pl\javex\UTYLITIES\Invoice.class

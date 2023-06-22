@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "admins")
+@Table(name = "jackets")
 @Getter
 @Setter
 public class JacketM extends ProductM {
@@ -16,4 +16,6 @@ public class JacketM extends ProductM {
 	protected Boolean hasHood;
 	@Column(name = "zip", columnDefinition = "boolean default false", nullable = false)
 	protected Boolean hasZip;
+	@Column(name = "type_name", nullable = true, columnDefinition="varchar(20) default 'Jacket'")
+	protected String typeName = "Jacket";
 }

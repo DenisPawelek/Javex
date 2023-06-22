@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 
 import pl.javex.MODELS.BootsM;
-import pl.javex.MODELS.DescriptionM;
+//import pl.javex.MODELS.DescriptionM;
 import pl.javex.MODELS.HoodieM;
 import pl.javex.MODELS.JacketM;
 import pl.javex.MODELS.PantsM;
@@ -38,11 +38,11 @@ public class ProductTransactional{
 	
 //	DLA PÓL
 	
-	@Autowired JpaRepository<DescriptionM  , Long> r_desccription;
+//	@Autowired JpaRepository<DescriptionM  , Long> r_desccription;
 	@Autowired JpaRepository<ReserveM      , Long> r_reserve;
 	
 	
-	/// ################ 	MUSI BYĆ W KOLEJNOŚCI ALFABETYCZNEJ
+//	/ ################ 	MUSI BYĆ W KOLEJNOŚCI ALFABETYCZNEJ
 	String [] types = {
 		"boots",
 		"hoodie",
@@ -51,6 +51,9 @@ public class ProductTransactional{
 		"shirt",
 		"sweater"
 	};
+//	String [] types = {
+//			"Product"
+//		};
 
 	
 	@Autowired
@@ -60,18 +63,18 @@ public class ProductTransactional{
 	ProductFactory pf;
 	
 	@Transactional()
-	public List<String> addSingle(String t, StructTP data, Boolean a, Boolean b) 
+	public List<Object> addSingle(String t, StructTP data, Boolean a, Boolean b) 
 			throws NoSuchMethodException, SecurityException, 
 			IllegalAccessException, InvocationTargetException, SQLException {
 		String s = "";
-		List<String> ss = new ArrayList<String>();
+		List<Object> ss = new ArrayList<Object>();
 		int selectedType = 0;
 		for(int i = 0; i<types.length; i++) {			
 			if(types[i].equals(t)) {
 				
-				if(data.getDescription().getId()!=null) {
-					throw new E_ObjectIDNotNull("Description ID is not null", new Exception());
-				}
+//				if(data.getDescription().getId()!=null) {
+//					throw new E_ObjectIDNotNull("Description ID is not null", new Exception());
+//				}
 				if(data.getProduct().getId()!=null) {
 					throw new E_ObjectIDNotNull("Product ID is not null", new Exception());
 				}
@@ -79,13 +82,13 @@ public class ProductTransactional{
 					throw new E_ProductClassNotMatch("Given product object is not of class ProductM", new Exception());
 				}
 				
-				DescriptionM description = r_desccription.save(data.getDescription());
+//				DescriptionM description = r_desccription.save(data.getDescription());
 				pf.setupParent(data.getProduct());
 				pf.setupProduct((GenericService)IProducts.get(i));
 				pf.injectParent();
 				pf.setupBooleans(a, b);
 				ProductM prod = (ProductM)(pf.getProduct());
-				prod.setDescription(description);
+//				prod.setDescription(description);
 		
 				prod = (ProductM)((GenericService)IProducts.get(i)).AddItem( ((GenericService)IProducts.get(i)).getField().getClass().cast((prod)));
 				for(ReserveM reserve : data.getReserves()) {
@@ -96,10 +99,10 @@ public class ProductTransactional{
 					r_reserve.save(reserve);
 
 				}
-				
-
+				ss.add(prod);
 				
 			}
+			
 		}
 
 		return ss;
