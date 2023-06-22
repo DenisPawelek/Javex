@@ -17,4 +17,6 @@ public class ShirtM extends ProductM {
 	protected Boolean hasSleeve;
 	@Column(name = "print", columnDefinition = "boolean default false", nullable = false)
 	protected Boolean hasPrint;
+	@Column(name = "type_name", nullable = true, columnDefinition="varchar(20) default 'Shirt'")
+	protected String typeName = "Shirt";
 }

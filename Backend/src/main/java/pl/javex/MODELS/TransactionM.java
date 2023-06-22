@@ -18,7 +18,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "transactionsus")
+@Table(name = "transactions")
 @Getter
 @Setter
 public class TransactionM {
@@ -51,9 +51,9 @@ public class TransactionM {
 	})
 	protected DateM date;
 
-	@OneToOne
-	@JoinColumn(name = "desc_id", nullable = false)
-	protected DescriptionM description;
+//	@OneToOne
+//	@JoinColumn(name = "desc_id", nullable = false)
+//	protected DescriptionM description;
 
 	@OneToOne
 	@JoinColumn(name = "invoice_id", nullable = true)

@@ -9,7 +9,7 @@ import pl.javex.MODELS.CategoryM;
 import pl.javex.MODELS.CityM;
 import pl.javex.MODELS.ColorM;
 import pl.javex.MODELS.DateM;
-import pl.javex.MODELS.DescriptionM;
+//import pl.javex.MODELS.DescriptionM;
 import pl.javex.MODELS.EmailM;
 import pl.javex.MODELS.HoodieM;
 import pl.javex.MODELS.InvoiceM;
@@ -53,7 +53,6 @@ interface RepoCategory    extends JpaRepository<CategoryM     , Long>{}
 interface RepoCity        extends JpaRepository<CityM         , Long>{}
 interface RepoColor       extends JpaRepository<ColorM        , Long>{}
 interface RepoDate        extends JpaRepository<DateM         , Long>{}
-interface RepoDescription extends JpaRepository<DescriptionM  , Long>{}
 interface RepoEmail       extends JpaRepository<EmailM        , Long>{}
 interface RepoMaterial    extends JpaRepository<MaterialM     , Long>{}
 interface RepoPostalCode  extends JpaRepository<PostalCodeM   , Long>{}

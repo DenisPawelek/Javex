@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  * Serwis generyczny zawierający definicje metod: Get, Add, Modify i Delete, dla pojedyńczych i wielu obiektów. 
@@ -74,6 +75,13 @@ public class GenericService<E extends Object> extends MainService<E> {
 			m.invoke(item, id);
 			// str.add(DescriptionM.class.getMethod( "setId" , Long.class).toString());
 //			DescriptionM d = new DescriptionM();
+			
+			System.out.println("Generic service...");
+			System.out.println(item);
+			System.out.println(id);
+			System.out.println(item.getClass());
+			System.out.println(prew);
+			System.out.println(repo);
 
 			repo.save(item);
 

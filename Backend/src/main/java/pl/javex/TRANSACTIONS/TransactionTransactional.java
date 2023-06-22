@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import pl.javex.MODELS.AddressM;
 import pl.javex.MODELS.DateM;
-import pl.javex.MODELS.DescriptionM;
+//import pl.javex.MODELS.DescriptionM;
 import pl.javex.MODELS.OrderM;
 import pl.javex.MODELS.ReserveM;
 import pl.javex.MODELS.TransactionM;
@@ -30,7 +30,7 @@ public class TransactionTransactional {
 	@Autowired JpaRepository<TransactionM,	Long> r_transaction;
 	@Autowired JpaRepository<UserM,			Long> r_user;
 	@Autowired JpaRepository<DateM,			Long> r_date;
-	@Autowired JpaRepository<DescriptionM,	Long> r_description;
+//	@Autowired JpaRepository<DescriptionM,	Long> r_description;
 	@Autowired JpaRepository<OrderM,		Long> r_order;
 	@Autowired JpaRepository<ReserveM,		Long> r_reserve;
 	
@@ -62,18 +62,18 @@ public class TransactionTransactional {
 		if(d.isEmpty()) date = r_date.save(date);
 		else date = d.get();
 //		
-		DescriptionM desc = r_description.save(transactionStruct.getDesc());
+//		DescriptionM desc = r_description.save(transactionStruct.getDesc());
 //		
 		TransactionM transaction = new TransactionM();
 		transaction.setAddress(address);
 		transaction.setDate(date);
-		transaction.setDescription(desc);
+//		transaction.setDescription(desc);
 		transaction.setUser(user);
 //		
 		
 		ss.add(transaction.getAddress().toString());
 		ss.add(transaction.getDate().toString());
-		ss.add(transaction.getDescription().toString());
+//		ss.add(transaction.getDescription().toString());
 		ss.add(transaction.getUser().toString());
 		
 		

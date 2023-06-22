@@ -1,0 +1,29 @@
+.search__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    background: #2c2d30;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.search__box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 220px;
+}
+.search__box input::placeholder {
+    color: #fff;
+}
+
+.search__box span i {
+    color: #fff;
+}
+
+.searchIcon{
+    margin-top: 8px;
+}

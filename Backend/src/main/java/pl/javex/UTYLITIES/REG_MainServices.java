@@ -49,7 +49,6 @@ public class REG_MainServices extends MainController {
 @Service class  AccesBrand       extends  MainService<BrandM       >  {@Override public BrandM        getField(){ return new BrandM       (); } }
 @Service class  AccesCategory    extends  MainService<CategoryM    >  {@Override public CategoryM     getField(){ return new CategoryM    (); } }
 @Service class  AccesColor       extends  MainService<ColorM       >  {@Override public ColorM        getField(){ return new ColorM       (); } }
-@Service class  AccesDescription extends  MainService<DescriptionM >  {@Override public DescriptionM  getField(){ return new DescriptionM (); } }
 @Service class  AccesMaterial    extends  MainService<MaterialM    >  {@Override public MaterialM     getField(){ return new MaterialM    (); } }
 @Service class  AccesProduct     extends  MainService<ProductM     >  {@Override public ProductM      getField(){ return new ProductM     (); } }
 @Service class  AccesProductType extends  MainService<ProductTypeM >  {@Override public ProductTypeM  getField(){ return new ProductTypeM (); } }

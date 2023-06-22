@@ -29,7 +29,6 @@ public class REG_GenericServices extends GenericController{}
 @Service class  Brand       extends  GenericService<BrandM       >{@Override public BrandM        getField(){ return new BrandM       (); } }
 @Service class  Category    extends  GenericService<CategoryM    >{@Override public CategoryM     getField(){ return new CategoryM    (); } }
 @Service class  Color       extends  GenericService<ColorM       >{@Override public ColorM        getField(){ return new ColorM       (); } }
-@Service class  Description extends  GenericService<DescriptionM >{@Override public DescriptionM  getField(){ return new DescriptionM (); } }
 @Service class  Material    extends  GenericService<MaterialM    >{@Override public MaterialM     getField(){ return new MaterialM    (); } }
 @Service class  Product     extends  GenericService<ProductM     >{@Override public ProductM      getField(){ return new ProductM     (); } }
 @Service class  ProductType extends  GenericService<ProductTypeM >{@Override public ProductTypeM  getField(){ return new ProductTypeM (); } }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,12 +29,14 @@ import services.GenericService;
  * 
  * @param <T>
  */
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = {"Requestor-Type", "Origin", "X-Api-Key", "X-Requested-With", "Content-Type", "Accept", "Authorization"}, exposedHeaders = "X-Get-Header", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 @RestController("GenericController")
 @RequestMapping("/g")
 public class GenericController<T> extends MainController<T> {
 	
 	@Autowired
 	protected List<GenericService> list = new ArrayList<GenericService>();
+
 
 	@GetMapping("/single/{type}")
 	public List<Object> getSingle(@PathVariable String type, @RequestParam Long id) {
@@ -51,6 +55,7 @@ public class GenericController<T> extends MainController<T> {
 		return l;
 	}
 
+
 	@GetMapping("/many/{type}")
 	public List<Object> getAll(@PathVariable String type) {
 
@@ -67,6 +72,7 @@ public class GenericController<T> extends MainController<T> {
 		return l;
 	}
 
+	
 	@PostMapping("/single/{type}")
 	public List<Object> postSingle(@PathVariable String type, @RequestBody String obj)
 			throws JsonMappingException, JsonProcessingException {
@@ -87,6 +93,7 @@ public class GenericController<T> extends MainController<T> {
 
 	}
 
+	
 	@PostMapping("/many/{type}")
 	public List<Object> postMany(@PathVariable String type, @RequestBody String obj)
 			throws JsonMappingException, JsonProcessingException {
@@ -124,7 +131,8 @@ public class GenericController<T> extends MainController<T> {
 
 		return l;
 	}
-
+	
+	
 	@DeleteMapping("/many/{type}")
 	public List<Object> deleteMany(@PathVariable String type, @RequestParam List<Long> ids) {
 
@@ -156,13 +164,15 @@ public class GenericController<T> extends MainController<T> {
 				ObjectMapper jacksonMapper = new ObjectMapper();
 				l = list.get(i).ModifyItem(id, jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
 //				l = new ArrayList<Object>();
-				l.add("MODIFIED SINGLE ITEM");
+//				l.add("MODIFIED SINGLE ITEM");
+				l.add(jacksonMapper.readValue(obj, list.get(i).getField().getClass()));
 				return l;
 			}
 		}
 
 		return l;
 	}
+
 
 	@PutMapping("/many/{type}")
 	public List<Object> modifyMany(@PathVariable String type, @RequestParam List<Long> ids, @RequestBody String obj)

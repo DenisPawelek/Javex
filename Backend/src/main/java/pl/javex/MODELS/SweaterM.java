@@ -17,4 +17,6 @@ public class SweaterM extends ProductM {
 	protected Boolean hasGolf;
 	@Column(name = "sleve", columnDefinition = "boolean default false", nullable = false)
 	protected Boolean hasSleeve;
+	@Column(name = "type_name", nullable = true, columnDefinition="varchar(20) default 'Sweater'")
+	protected String typeName = "Sweater";
 }

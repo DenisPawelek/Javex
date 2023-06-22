@@ -25,7 +25,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "usersssssa")
+@Table(name = "users")
 @Getter
 @Setter
 public class UserM implements UserDetails{

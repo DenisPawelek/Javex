@@ -4,6 +4,7 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 import styled from "styled-components";
 
 import Logo from "../assets/Svgs/star_white_48dp.svg";
+import AxiosTest from "../hooks/AxiosTest";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -138,12 +139,12 @@ const Footer = () => {
         </h3>
       </LogoContainer>
       <FooterComponent
-        initial={{ y: "-400px" }}
+        // initial={{ y: "-400px" }}
         whileInView={{ y: 0 }}
         viewport={{ once: false }}
-        transition={{
-          duration: 1.5,
-        }}
+        // transition={{
+        //   duration: 1.5,
+        // }}
       >
         <ul>
           <li aria-hidden="true" onClick={() => handleScroll("#home")}>
@@ -179,6 +180,7 @@ const Footer = () => {
           </span>
         </Bottom>
       </FooterComponent>
+      {/* <AxiosTest /> */}
     </Section>
   );
 };

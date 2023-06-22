@@ -63,7 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception
 	{	
-
 		auth.userDetailsService(user_s);
 	}	
 	
@@ -72,7 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception
 	{
-
+		httpSecurity.cors();
+		
 		httpSecurity
 		.csrf(csrf->csrf.disable())
 		.authorizeRequests(auth -> auth
