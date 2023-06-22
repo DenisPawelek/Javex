@@ -7,13 +7,13 @@ import styled from "styled-components";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import GoogleIcon from "@mui/icons-material/Google";
-import PinterestIcon from "@mui/icons-material/Pinterest";
 import SearchIcon from '@mui/icons-material/Search';
+import PersonIcon from '@mui/icons-material/Person';
 
 import Logo from "./Logo";
 
 import "./NavbarSearchBox.css"
+import { Person } from "@mui/icons-material";
 
 const NavContainer = styled(motion.div)`
   position: fixed;
@@ -131,6 +131,15 @@ const Navbar = () => {
         <Logo />
         </Item>
 
+        <Item
+        whileHover={{ scale: 1.1, y: -5 }}
+        whileTap={{ scale: 0.9, y: 0 }}
+        >
+          {/* <Person/> */}
+          <Link to="/profile">profile</Link>
+    
+        </Item>
+
         <Item>
         {/* <SearchIcon/> */}
         <div className="search__box">
@@ -238,18 +247,15 @@ const Navbar = () => {
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
         >
-          {" "}
-          <GoogleIcon />
+          <Link to="/login">login</Link>
         </Item>
 
         <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
         >
-          {" "}
-          <PinterestIcon />
+          <Link to="/register">register</Link>
         </Item>
-
       </MenuItems>
     </NavContainer>
   );
