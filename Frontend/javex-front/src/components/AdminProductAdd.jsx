@@ -1,6 +1,65 @@
 import { useState, useEffect } from "react";
 import Combobox from "react-widgets/Combobox";
 import "react-widgets/scss/styles.scss";
+import styled from "styled-components";
+
+//#region styled components
+const Container = styled.div`
+  width: 100%;
+  max-width: 500px;
+  flex-direction: column;
+  margin: 20px 0px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const Button = styled.button`
+  padding: 15px;
+  border: 2px solid teal;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+  margin: 10px 5px 0px 0px;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin: 0px 0px; 10px 0px;
+`;
+
+const Title = styled.div`
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0px 10px 0px 0px;
+`;
+
+const Field = styled.input`
+  padding: 5px;
+  border: 2px solid teal;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px 5px 5px 0px;
+  width: 100%;
+`;
+//#endregion
 
 const AdminProductAdd = ({ productRef, addProduct, saveProduct }) => {
   //#region Słowniki
@@ -115,57 +174,64 @@ const AdminProductAdd = ({ productRef, addProduct, saveProduct }) => {
   };
 
   return (
-    <div>
-      {/* Id: {prod?.id} */}
-      {/* <br /> */}
-      Name:{" "}
-      <input
-        name="name"
-        type="text"
-        value={product?.product?.name || ""}
-        onChange={handleChange}
-      />
-      <br />
-      Description:{" "}
-      <input
-        name="description"
-        type="text"
-        value={product?.product?.description || ""}
-        onChange={handleChange}
-      />
-      <br />
-      Price:{" "}
-      <input
-        name="price"
-        type="text"
-        value={product?.product?.price || ""}
-        onChange={handleChange}
-      />
-      <br />
-      Type:{" "}
-      <Combobox
-        data={productTypeDictionary}
-        dataKey="id"
-        textField="type_name"
-        defaultValue={productTypeDictionary[0]}
-        onChange={(item) => {
-          return setProd({
-            ...product,
-            product: { ...product.product, typeName: item.type_name },
-          });
-        }}
-      />
-      {product?.product?.id ? null : (
-        <button
+    <Container>
+      <Row>
+        <Title>Name:</Title>
+        <Field
+          name="name"
+          type="text"
+          value={product?.product?.name || ""}
+          onChange={handleChange}
+        />
+      </Row>
+
+      <Row>
+        <Title>Description:</Title>
+        <Field
+          name="description"
+          type="text"
+          value={product?.product?.description || ""}
+          onChange={handleChange}
+        />
+      </Row>
+
+      <Row>
+        <Title>Price:</Title>
+        <Field
+          name="price"
+          type="text"
+          value={product?.product?.price || ""}
+          onChange={handleChange}
+        />
+      </Row>
+
+      <Row>
+        <Title>Type:</Title>
+        <Combobox
+          data={productTypeDictionary}
+          dataKey="id"
+          textField="type_name"
+          defaultValue={productTypeDictionary[0]}
+          onChange={(item) => {
+            return setProd({
+              ...product,
+              product: { ...product.product, typeName: item.type_name },
+            });
+          }}
+        />
+      </Row>
+
+      <ButtonContainer>
+        <Button
           onClick={() => {
             console.log(product);
             return addProduct({ product });
           }}
         >
           Add Product
-        </button>
-      )}
-    </div>
+        </Button>
+      </ButtonContainer>
+    </Container>
   );
 };
 
